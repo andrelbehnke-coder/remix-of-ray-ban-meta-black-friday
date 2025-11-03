@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import CountdownTimer from "@/components/CountdownTimer";
 import TrustSection from "@/components/TrustSection";
+import VideoShowcase from "@/components/VideoShowcase";
 import Features from "@/components/Features";
 import TechnologyDeepDive from "@/components/TechnologyDeepDive";
 import Specifications from "@/components/Specifications";
@@ -16,6 +17,7 @@ const Index = () => {
       <Hero />
       <CountdownTimer />
       <TrustSection />
+      <VideoShowcase />
       <Features />
       <TechnologyDeepDive />
       <Specifications />

@@ -2,10 +2,19 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import heroImage from "@/assets/hero-glasses.jpg";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { useState } from "react";
+import VideoModal from "@/components/VideoModal";
 
 const Hero = () => {
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+
+  const scrollToVideos = () => {
+    document.getElementById('videos')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-background to-muted/30">
+      <VideoModal open={isVideoModalOpen} onOpenChange={setIsVideoModalOpen} />
       <div className="container mx-auto px-4 py-20 md:py-32">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
@@ -52,9 +61,16 @@ const Hero = () => {
                 size="lg" 
                 variant="outline"
                 className="border-2 border-foreground text-foreground hover:bg-foreground hover:text-background font-bold text-lg px-8 py-6 transition-all duration-300"
+                onClick={() => setIsVideoModalOpen(true)}
               >
                 Watch Demo
               </Button>
+              <button
+                onClick={scrollToVideos}
+                className="text-accent hover:text-accent/80 font-semibold text-sm flex items-center gap-2 transition-colors"
+              >
+                See It In Action ↓
+              </button>
             </div>
 
             {/* Trust Indicators */}
