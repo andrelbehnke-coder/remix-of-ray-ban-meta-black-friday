@@ -1,9 +1,13 @@
 import Hero from "@/components/Hero";
 import CountdownTimer from "@/components/CountdownTimer";
+import TrustSection from "@/components/TrustSection";
 import Features from "@/components/Features";
-import Testimonials from "@/components/Testimonials";
+import TechnologyDeepDive from "@/components/TechnologyDeepDive";
 import Specifications from "@/components/Specifications";
-import OrderSection from "@/components/OrderSection";
+import Testimonials from "@/components/Testimonials";
+import Comparison from "@/components/Comparison";
+import FAQ from "@/components/FAQ";
+import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -11,10 +15,14 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Hero />
       <CountdownTimer />
+      <TrustSection />
       <Features />
-      <Testimonials />
+      <TechnologyDeepDive />
       <Specifications />
-      <OrderSection />
+      <Testimonials />
+      <Comparison />
+      <FAQ />
+      <CTASection />
       <Footer />
     </div>
   );

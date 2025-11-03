@@ -21,15 +21,15 @@ All colors MUST be HSL.
     --primary: 0 0% 0%;
     --primary-foreground: 0 0% 100%;
 
-    /* Ray-Ban green accent */
-    --secondary: 142 76% 36%;
+    /* Ray-Ban red accent - signature brand color */
+    --secondary: 0 85% 45%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 45%;
 
-    /* Ray-Ban green for accents and CTAs */
-    --accent: 142 76% 36%;
+    /* Ray-Ban red for accents and CTAs */
+    --accent: 0 85% 45%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -37,20 +37,22 @@ All colors MUST be HSL.
 
     --border: 0 0% 90%;
     --input: 0 0% 95%;
-    --ring: 142 76% 36%;
+    --ring: 0 85% 45%;
 
     --radius: 0.25rem;
     
     /* Custom Ray-Ban design tokens */
-    --rayban-green: 142 76% 36%;
-    --rayban-green-hover: 142 76% 32%;
+    --rayban-red: 0 85% 45%;
+    --rayban-red-hover: 0 85% 40%;
+    --rayban-red-dark: 0 85% 35%;
     --rayban-black: 0 0% 0%;
     --rayban-gray: 0 0% 45%;
     --rayban-light-gray: 0 0% 96%;
     
     /* Gradients */
     --gradient-hero: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(0 0% 98%) 100%);
-    --gradient-cta: linear-gradient(135deg, hsl(142 76% 36%) 0%, hsl(142 76% 32%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(0 85% 45%) 0%, hsl(0 85% 40%) 100%);
+    --gradient-black-friday: linear-gradient(135deg, hsl(0 0% 0%) 0%, hsl(0 85% 15%) 100%);
     
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
@@ -92,13 +94,13 @@ All colors MUST be HSL.
     --primary: 0 0% 100%;
     --primary-foreground: 0 0% 0%;
 
-    --secondary: 142 76% 36%;
+    --secondary: 0 85% 45%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 0 0% 15%;
     --muted-foreground: 0 0% 65%;
 
-    --accent: 142 76% 36%;
+    --accent: 0 85% 45%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -106,7 +108,7 @@ All colors MUST be HSL.
 
     --border: 0 0% 20%;
     --input: 0 0% 15%;
-    --ring: 142 76% 36%;
+    --ring: 0 85% 45%;
   }
 }
 
