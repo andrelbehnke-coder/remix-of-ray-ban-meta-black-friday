@@ -70,25 +70,39 @@ const VideoShowcase = () => {
                 key={index} 
                 className="group overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 hover:border-accent/50"
               >
-                <div className="relative aspect-video bg-black">
+                <div className="relative aspect-video bg-gradient-to-br from-accent/20 to-background overflow-hidden">
                   {!isPlaying ? (
                     <>
+                      {/* Thumbnail Background */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-accent/10 to-black/80 flex items-center justify-center">
+                        <Icon className={`w-24 h-24 ${video.color} opacity-20`} />
+                      </div>
+                      
+                      {/* Video Preview (hidden but loads poster) */}
                       <video
-                        className="w-full h-full object-cover"
-                        poster={`${video.url}#t=0.1`}
+                        className="w-full h-full object-cover opacity-0 absolute inset-0"
+                        poster={`${video.url}#t=0.5`}
                         preload="metadata"
                       >
                         <source src={video.url} type="video/mp4" />
                       </video>
+                      
+                      {/* Play Button Overlay */}
                       <div 
-                        className="absolute inset-0 bg-black/40 flex items-center justify-center cursor-pointer group-hover:bg-black/30 transition-all"
+                        className="absolute inset-0 flex items-center justify-center cursor-pointer group-hover:bg-black/20 transition-all z-10"
                         onClick={() => handleVideoClick(video.url)}
                       >
-                        <div className="w-20 h-20 rounded-full bg-accent/90 flex items-center justify-center group-hover:scale-110 transition-transform shadow-xl">
-                          <Play className="w-10 h-10 text-white ml-1" fill="white" />
+                        <div className="flex flex-col items-center gap-4">
+                          <div className="w-20 h-20 rounded-full bg-accent flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xl">
+                            <Play className="w-10 h-10 text-white ml-1" fill="white" />
+                          </div>
+                          <span className="text-white font-semibold text-lg px-4 py-2 bg-black/50 rounded-full backdrop-blur-sm">
+                            Watch Demo
+                          </span>
                         </div>
                       </div>
-                      <Badge className="absolute top-4 right-4 bg-destructive text-destructive-foreground font-bold">
+                      
+                      <Badge className="absolute top-4 right-4 bg-destructive text-destructive-foreground font-bold z-20">
                         Real Footage
                       </Badge>
                     </>
