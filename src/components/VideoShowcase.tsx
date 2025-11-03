@@ -73,19 +73,17 @@ const VideoShowcase = () => {
                 <div className="relative aspect-video bg-gradient-to-br from-accent/20 to-background overflow-hidden">
                   {!isPlaying ? (
                     <>
-                      {/* Thumbnail Background */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-accent/10 to-black/80 flex items-center justify-center">
-                        <Icon className={`w-24 h-24 ${video.color} opacity-20`} />
-                      </div>
-                      
-                      {/* Video Preview (hidden but loads poster) */}
+                      {/* Video Thumbnail */}
                       <video
-                        className="w-full h-full object-cover opacity-0 absolute inset-0"
-                        poster={`${video.url}#t=0.5`}
+                        className="w-full h-full object-cover"
+                        poster={`${video.url}#t=2.0`}
                         preload="metadata"
                       >
                         <source src={video.url} type="video/mp4" />
                       </video>
+                      
+                      {/* Dark Overlay */}
+                      <div className="absolute inset-0 bg-black/30" />
                       
                       {/* Play Button Overlay */}
                       <div 
