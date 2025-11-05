@@ -5,11 +5,11 @@ import { Check, ChevronRight, Info } from "lucide-react";
 
 const ProductInfo = () => {
   const colors = [
-    { name: "Matte Black", selected: true },
-    { name: "Shiny Black", selected: false },
-    { name: "Caramel", selected: false },
-    { name: "Jeans", selected: false },
-    { name: "Transparent", selected: false },
+    { name: "Matte Black", available: true, selected: true },
+    { name: "Shiny Black", available: false, selected: false },
+    { name: "Caramel", available: false, selected: false },
+    { name: "Jeans", available: false, selected: false },
+    { name: "Transparent", available: false, selected: false },
   ];
 
   return (
@@ -22,16 +22,25 @@ const ProductInfo = () => {
         </div>
         <div className="grid grid-cols-3 gap-2">
           {colors.map((color, index) => (
-            <button
-              key={index}
-              className={`aspect-square rounded border-2 transition-all ${
-                color.selected
-                  ? "border-primary ring-2 ring-primary/20"
-                  : "border-border hover:border-muted-foreground"
-              }`}
-            >
-              <span className="sr-only">{color.name}</span>
-            </button>
+            <div key={index} className="relative">
+              <button
+                disabled={!color.available}
+                className={`aspect-square rounded border-2 transition-all w-full ${
+                  color.selected
+                    ? "border-primary ring-2 ring-primary/20"
+                    : color.available
+                    ? "border-border hover:border-muted-foreground"
+                    : "border-border opacity-40 cursor-not-allowed"
+                }`}
+              >
+                <span className="sr-only">{color.name}</span>
+              </button>
+              {!color.available && (
+                <span className="absolute -top-1 -right-1 bg-destructive text-destructive-foreground text-[8px] font-bold px-1 py-0.5 rounded">
+                  ESGOTADO
+                </span>
+              )}
+            </div>
           ))}
         </div>
       </Card>

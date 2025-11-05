@@ -1,15 +1,23 @@
 import { useState } from "react";
-import heroImage from "@/assets/hero-glasses.jpg";
-import lifestyleImage from "@/assets/lifestyle-1.jpg";
-import detailImage from "@/assets/detail-shot.jpg";
+import productFront from "@/assets/product-front.webp";
+import productLifestyle from "@/assets/product-lifestyle.webp";
+import productSide from "@/assets/product-side.webp";
+import productAngle from "@/assets/product-angle.webp";
+import productBack from "@/assets/product-back.webp";
+import productFolded from "@/assets/product-folded.webp";
+import productUnboxing from "@/assets/product-unboxing.webp";
 
 const ProductGalleryMobile = () => {
   const [currentImage, setCurrentImage] = useState(0);
 
   const images = [
-    { src: heroImage, alt: "Ray-Ban Meta Wayfarer - Front View" },
-    { src: lifestyleImage, alt: "Ray-Ban Meta Wayfarer - Lifestyle" },
-    { src: detailImage, alt: "Ray-Ban Meta Wayfarer - Detail" },
+    { src: productFront, alt: "Ray-Ban Meta Wayfarer - Vista Frontal" },
+    { src: productLifestyle, alt: "Ray-Ban Meta Wayfarer - Em Uso" },
+    { src: productSide, alt: "Ray-Ban Meta Wayfarer - Vista Lateral" },
+    { src: productAngle, alt: "Ray-Ban Meta Wayfarer - Ângulo Detalhado" },
+    { src: productBack, alt: "Ray-Ban Meta Wayfarer - Vista Traseira" },
+    { src: productFolded, alt: "Ray-Ban Meta Wayfarer - Dobrado" },
+    { src: productUnboxing, alt: "Ray-Ban Meta Wayfarer - Embalagem Completa" },
   ];
 
   return (
