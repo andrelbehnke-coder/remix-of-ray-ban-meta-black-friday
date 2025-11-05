@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import productFront from "@/assets/product-front.webp";
 import productLifestyle from "@/assets/product-lifestyle.webp";
 import productSide from "@/assets/product-side.webp";
@@ -9,6 +9,8 @@ import productUnboxing from "@/assets/product-unboxing.webp";
 
 const ProductGalleryMobile = () => {
   const [currentImage, setCurrentImage] = useState(0);
+  const touchStartX = useRef<number>(0);
+  const touchEndX = useRef<number>(0);
 
   const images = [
     { src: productFront, alt: "Ray-Ban Meta Wayfarer - Vista Frontal" },
@@ -20,14 +22,40 @@ const ProductGalleryMobile = () => {
     { src: productUnboxing, alt: "Ray-Ban Meta Wayfarer - Embalagem Completa" },
   ];
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current - touchEndX.current > 50) {
+      // Swipe left - next image
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }
+
+    if (touchStartX.current - touchEndX.current < -50) {
+      // Swipe right - previous image
+      setCurrentImage((prev) => (prev - 1 + images.length) % images.length);
+    }
+  };
+
   return (
     <div className="bg-muted">
       {/* Main Image */}
-      <div className="relative aspect-square">
+      <div 
+        className="relative aspect-square overflow-hidden"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         <img
           src={images[currentImage].src}
           alt={images[currentImage].alt}
-          className="w-full h-full object-contain"
+          className="w-full h-full object-contain transition-transform duration-300"
+          loading={currentImage === 0 ? "eager" : "lazy"}
         />
       </div>
 
