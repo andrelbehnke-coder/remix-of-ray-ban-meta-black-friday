@@ -96,9 +96,9 @@ const ProductInfo = () => {
       {/* CTA Button */}
       <Button 
         size="lg" 
-        className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-4 text-sm sm:text-base"
+        className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-4 text-sm sm:text-base"
       >
-        CHOOSE YOUR FRAME & LENS COLORS
+        BUY NOW
       </Button>
 
       <p className="text-center text-xs text-muted-foreground">
