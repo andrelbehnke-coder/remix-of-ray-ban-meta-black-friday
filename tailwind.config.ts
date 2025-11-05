@@ -14,9 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        'heading': ['Bebas Neue', 'sans-serif'],
-        'condensed': ['Roboto Condensed', 'sans-serif'],
-        'sans': ['Roboto Condensed', 'system-ui', 'sans-serif'],
+        'sans': ['system-ui', '-apple-system', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
