@@ -2,16 +2,16 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Check, ChevronRight, Info } from "lucide-react";
-import colorsReference from "@/assets/colors/colors-reference.png";
+import colorVariant from "@/assets/colors/color-variant.webp";
 
 const ProductInfo = () => {
   const colors = [
-    { name: "Transparent", available: false, selected: false, position: "0%" },
-    { name: "Shiny Black", available: false, selected: false, position: "20%" },
-    { name: "Matte Black", available: true, selected: true, position: "40%" },
-    { name: "Caramel", available: false, selected: false, position: "60%" },
-    { name: "Wayfarer Black", available: false, selected: false, position: "80%" },
-    { name: "Jeans", available: false, selected: false, position: "100%" },
+    { name: "Transparent", available: false, selected: false },
+    { name: "Shiny Black", available: false, selected: false },
+    { name: "Matte Black", available: true, selected: true },
+    { name: "Caramel", available: false, selected: false },
+    { name: "Wayfarer Black", available: false, selected: false },
+    { name: "Jeans", available: false, selected: false },
   ];
 
   return (
@@ -32,20 +32,17 @@ const ProductInfo = () => {
                     ? "border-[#cc0000] ring-2 ring-[#cc0000]/20"
                     : color.available
                     ? "border-gray-200 hover:border-gray-400 hover:shadow-md"
-                    : "border-gray-200 opacity-40 cursor-not-allowed"
+                    : "border-gray-200 cursor-not-allowed"
                 }`}
               >
-                <div className="w-full h-full relative">
-                  <img
-                    src={colorsReference}
-                    alt={color.name}
-                    className="w-[600%] h-full object-contain absolute left-0 top-0"
-                    style={{
-                      objectPosition: `${color.position} center`,
-                    }}
-                    loading="lazy"
-                  />
-                </div>
+                <img
+                  src={colorVariant}
+                  alt={color.name}
+                  className={`w-full h-full object-contain transition-all ${
+                    !color.available ? "grayscale opacity-50" : ""
+                  }`}
+                  loading="lazy"
+                />
                 <span className="sr-only">{color.name}</span>
               </button>
               {!color.available && (
