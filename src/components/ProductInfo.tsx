@@ -2,14 +2,16 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Check, ChevronRight, Info } from "lucide-react";
+import colorsReference from "@/assets/colors/colors-reference.png";
 
 const ProductInfo = () => {
   const colors = [
-    { name: "Matte Black", available: true, selected: true },
-    { name: "Shiny Black", available: false, selected: false },
-    { name: "Caramel", available: false, selected: false },
-    { name: "Jeans", available: false, selected: false },
-    { name: "Transparent", available: false, selected: false },
+    { name: "Transparent", available: false, selected: false, position: "0%" },
+    { name: "Shiny Black", available: false, selected: false, position: "20%" },
+    { name: "Matte Black", available: true, selected: true, position: "40%" },
+    { name: "Caramel", available: false, selected: false, position: "60%" },
+    { name: "Wayfarer Black", available: false, selected: false, position: "80%" },
+    { name: "Jeans", available: false, selected: false, position: "100%" },
   ];
 
   return (
@@ -20,25 +22,39 @@ const ProductInfo = () => {
           <h3 className="font-semibold text-sm">6 COLORS</h3>
           <span className="text-xs text-muted-foreground">(Gen 2)</span>
         </div>
-        <div className="grid grid-cols-3 gap-2">
+        <div className="grid grid-cols-3 lg:grid-cols-6 gap-3">
           {colors.map((color, index) => (
             <div key={index} className="relative">
               <button
                 disabled={!color.available}
-                className={`aspect-square rounded border-2 transition-all w-full ${
+                className={`aspect-square rounded-lg border-2 transition-all w-full bg-white p-2 overflow-hidden ${
                   color.selected
-                    ? "border-primary ring-2 ring-primary/20"
+                    ? "border-[#cc0000] ring-2 ring-[#cc0000]/20"
                     : color.available
-                    ? "border-border hover:border-muted-foreground"
-                    : "border-border opacity-40 cursor-not-allowed"
+                    ? "border-gray-200 hover:border-gray-400 hover:shadow-md"
+                    : "border-gray-200 opacity-40 cursor-not-allowed"
                 }`}
               >
+                <div className="w-full h-full relative">
+                  <img
+                    src={colorsReference}
+                    alt={color.name}
+                    className="w-[600%] h-full object-contain absolute left-0 top-0"
+                    style={{
+                      objectPosition: `${color.position} center`,
+                    }}
+                    loading="lazy"
+                  />
+                </div>
                 <span className="sr-only">{color.name}</span>
               </button>
               {!color.available && (
-                <span className="absolute -top-1 -right-1 bg-destructive text-destructive-foreground text-[8px] font-bold px-1 py-0.5 rounded">
+                <span className="absolute -top-2 -right-2 bg-red-600 text-white text-[9px] font-bold px-2 py-1 rounded-md shadow-sm z-10">
                   ESGOTADO
                 </span>
+              )}
+              {color.selected && (
+                <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-[#cc0000] rounded-full" />
               )}
             </div>
           ))}
