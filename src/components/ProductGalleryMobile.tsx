@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import productHero from "@/assets/product-hero.webp";
 import productFront from "@/assets/product-front.webp";
 import productLifestyle from "@/assets/product-lifestyle.webp";
 import productSide from "@/assets/product-side.webp";
@@ -13,6 +14,7 @@ const ProductGalleryMobile = () => {
   const touchEndX = useRef<number>(0);
 
   const images = [
+    { src: productHero, alt: "Ray-Ban Meta Wayfarer - Matte Black" },
     { src: productFront, alt: "Ray-Ban Meta Wayfarer - Vista Frontal" },
     { src: productLifestyle, alt: "Ray-Ban Meta Wayfarer - Em Uso" },
     { src: productSide, alt: "Ray-Ban Meta Wayfarer - Vista Lateral" },
