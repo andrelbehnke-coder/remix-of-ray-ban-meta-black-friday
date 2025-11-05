@@ -49,8 +49,9 @@ const VideoFeatures = () => {
                     <>
                       <video
                         className="w-full h-full object-cover"
-                        poster={`${video.url}#t=2.0`}
-                        preload="metadata"
+                        preload="auto"
+                        muted
+                        playsInline
                       >
                         <source src={video.url} type="video/mp4" />
                       </video>
@@ -58,7 +59,7 @@ const VideoFeatures = () => {
                         onClick={() => setPlayingVideo(video.url)}
                         className="absolute inset-0 flex items-center justify-center bg-black/30 cursor-pointer hover:bg-black/40 transition-colors"
                       >
-                        <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center">
+                        <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-lg">
                           <svg className="w-8 h-8 text-primary ml-1" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M8 5v14l11-7z"/>
                           </svg>
