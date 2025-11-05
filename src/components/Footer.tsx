@@ -21,10 +21,10 @@ const Footer = () => {
         </div>
 
         {/* Links */}
-        <div className="grid md:grid-cols-4 gap-8 mb-8 text-center md:text-left">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8 text-center sm:text-left">
           <div>
-            <h3 className="font-bold mb-4">Customer Service</h3>
-            <ul className="space-y-2 text-sm text-primary-foreground/80">
+            <h3 className="font-bold mb-4 text-sm sm:text-base">Customer Service</h3>
+            <ul className="space-y-2 text-xs sm:text-sm text-primary-foreground/80">
               <li><a href="#" className="hover:text-accent transition-colors">Contact Us</a></li>
               <li><a href="#" className="hover:text-accent transition-colors">Shipping Info</a></li>
               <li><a href="#" className="hover:text-accent transition-colors">Returns</a></li>
@@ -32,8 +32,8 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h3 className="font-bold mb-4">Product Info</h3>
-            <ul className="space-y-2 text-sm text-primary-foreground/80">
+            <h3 className="font-bold mb-4 text-sm sm:text-base">Product Info</h3>
+            <ul className="space-y-2 text-xs sm:text-sm text-primary-foreground/80">
               <li><a href="#" className="hover:text-accent transition-colors">Specifications</a></li>
               <li><a href="#" className="hover:text-accent transition-colors">User Manual</a></li>
               <li><a href="#" className="hover:text-accent transition-colors">Warranty</a></li>
@@ -41,8 +41,8 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h3 className="font-bold mb-4">Company</h3>
-            <ul className="space-y-2 text-sm text-primary-foreground/80">
+            <h3 className="font-bold mb-4 text-sm sm:text-base">Company</h3>
+            <ul className="space-y-2 text-xs sm:text-sm text-primary-foreground/80">
               <li><a href="#" className="hover:text-accent transition-colors">About Us</a></li>
               <li><a href="#" className="hover:text-accent transition-colors">Press</a></li>
               <li><a href="#" className="hover:text-accent transition-colors">Careers</a></li>
@@ -50,8 +50,8 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h3 className="font-bold mb-4">Legal</h3>
-            <ul className="space-y-2 text-sm text-primary-foreground/80">
+            <h3 className="font-bold mb-4 text-sm sm:text-base">Legal</h3>
+            <ul className="space-y-2 text-xs sm:text-sm text-primary-foreground/80">
               <li><a href="#" className="hover:text-accent transition-colors">Privacy Policy</a></li>
               <li><a href="#" className="hover:text-accent transition-colors">Terms of Service</a></li>
               <li><a href="#" className="hover:text-accent transition-colors">Cookie Policy</a></li>

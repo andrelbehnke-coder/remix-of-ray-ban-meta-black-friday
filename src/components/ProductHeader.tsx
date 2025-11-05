@@ -3,9 +3,9 @@ import { Badge } from "@/components/ui/badge";
 
 const ProductHeader = () => {
   return (
-    <div className="sticky top-0 z-50 bg-white border-b border-border">
+    <div className="sticky top-0 z-50 bg-white border-b border-border pt-safe">
       {/* Ray-Ban Red Banner */}
-      <div className="bg-accent text-accent-foreground text-center py-2 px-4 text-xs font-semibold">
+      <div className="bg-accent text-accent-foreground text-center py-2 px-4 text-[10px] sm:text-xs font-semibold leading-tight">
         RAY-BAN META (GEN 2) - GIFT A CAMERA, EARBUDS, AND GLASSES IN ONE
       </div>
       

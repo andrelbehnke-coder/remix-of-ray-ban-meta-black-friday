@@ -15,13 +15,13 @@ const ProductGalleryMobile = () => {
 
   const images = [
     { src: productHero, alt: "Ray-Ban Meta Wayfarer - Matte Black" },
-    { src: productFront, alt: "Ray-Ban Meta Wayfarer - Vista Frontal" },
-    { src: productLifestyle, alt: "Ray-Ban Meta Wayfarer - Em Uso" },
-    { src: productSide, alt: "Ray-Ban Meta Wayfarer - Vista Lateral" },
-    { src: productAngle, alt: "Ray-Ban Meta Wayfarer - Ângulo Detalhado" },
-    { src: productBack, alt: "Ray-Ban Meta Wayfarer - Vista Traseira" },
-    { src: productFolded, alt: "Ray-Ban Meta Wayfarer - Dobrado" },
-    { src: productUnboxing, alt: "Ray-Ban Meta Wayfarer - Embalagem Completa" },
+    { src: productFront, alt: "Ray-Ban Meta Wayfarer - Front View" },
+    { src: productLifestyle, alt: "Ray-Ban Meta Wayfarer - Lifestyle Shot" },
+    { src: productSide, alt: "Ray-Ban Meta Wayfarer - Side View" },
+    { src: productAngle, alt: "Ray-Ban Meta Wayfarer - Detailed Angle" },
+    { src: productBack, alt: "Ray-Ban Meta Wayfarer - Back View" },
+    { src: productFolded, alt: "Ray-Ban Meta Wayfarer - Folded" },
+    { src: productUnboxing, alt: "Ray-Ban Meta Wayfarer - Full Package" },
   ];
 
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -59,6 +59,10 @@ const ProductGalleryMobile = () => {
           className="w-full h-full object-contain transition-transform duration-300"
           loading={currentImage === 0 ? "eager" : "lazy"}
         />
+        {/* Image Counter */}
+        <div className="absolute top-4 right-4 bg-black/50 text-white px-3 py-1 rounded-full text-xs font-medium">
+          {currentImage + 1} / {images.length}
+        </div>
       </div>
 
       {/* Image Dots */}
@@ -67,13 +71,15 @@ const ProductGalleryMobile = () => {
           <button
             key={index}
             onClick={() => setCurrentImage(index)}
-            className={`w-2 h-2 rounded-full transition-all ${
+            className="w-10 h-10 flex items-center justify-center"
+            aria-label={`View image ${index + 1}`}
+          >
+            <div className={`w-2 h-2 rounded-full transition-all ${
               currentImage === index
                 ? "bg-primary w-6"
                 : "bg-border hover:bg-muted-foreground"
-            }`}
-            aria-label={`View image ${index + 1}`}
-          />
+            }`} />
+          </button>
         ))}
       </div>
     </div>

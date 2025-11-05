@@ -5,27 +5,27 @@ import unboxingImage from "@/assets/product-unboxing.webp";
 const WhatsInTheBox = () => {
   const items = [
     { icon: Package, label: "Ray-Ban | Meta Wayfarer" },
-    { icon: Battery, label: "Case de Carregamento Portátil" },
-    { icon: Cable, label: "Cabo USB-C" },
-    { icon: BookOpen, label: "Guia Rápido & Garantia" },
-    { icon: Briefcase, label: "Case de Couro Premium" },
+    { icon: Battery, label: "Portable Charging Case" },
+    { icon: Cable, label: "USB-C Cable" },
+    { icon: BookOpen, label: "Quick Guide & Warranty" },
+    { icon: Briefcase, label: "Premium Leather Case" },
   ];
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h2 className="text-xl font-bold mb-6">O QUE VEM NA CAIXA</h2>
+    <div className="container mx-auto px-4 py-6 sm:py-8">
+      <h2 className="text-xl font-bold mb-6">WHAT'S IN THE BOX</h2>
       
       <Card className="overflow-hidden">
-        <div className="aspect-square bg-muted">
+        <div className="aspect-video sm:aspect-square bg-muted">
           <img
             src={unboxingImage}
-            alt="Conteúdo da Embalagem Ray-Ban Meta Wayfarer"
+            alt="Ray-Ban Meta Wayfarer Package Contents"
             className="w-full h-full object-cover"
             loading="lazy"
           />
         </div>
         
-        <div className="p-4 space-y-3">
+        <div className="p-4 grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
           {items.map((item, index) => {
             const Icon = item.icon;
             return (
