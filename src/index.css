@@ -8,59 +8,61 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 0%;
+    /* Black Friday Dark Theme */
+    --background: 0 0% 5%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 98%;
-    --card-foreground: 0 0% 0%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 0%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 98%;
 
-    /* Ray-Ban black - primary brand color */
+    /* Aggressive Black for emphasis */
     --primary: 0 0% 0%;
     --primary-foreground: 0 0% 100%;
 
-    /* Ray-Ban red accent - signature brand color */
-    --secondary: 0 85% 45%;
+    /* Ray-Ban red - more vibrant for Black Friday */
+    --secondary: 0 100% 50%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
 
-    /* Ray-Ban red for accents and CTAs */
-    --accent: 0 85% 45%;
+    /* Neon Red Accent for Black Friday */
+    --accent: 0 100% 50%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 100% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 95%;
-    --ring: 0 85% 45%;
+    --border: 0 0% 20%;
+    --input: 0 0% 12%;
+    --ring: 0 100% 50%;
 
-    --radius: 0.25rem;
+    --radius: 0.5rem;
     
-    /* Custom Ray-Ban design tokens */
-    --rayban-red: 0 85% 45%;
-    --rayban-red-hover: 0 85% 40%;
-    --rayban-red-dark: 0 85% 35%;
-    --rayban-black: 0 0% 0%;
-    --rayban-gray: 0 0% 45%;
-    --rayban-light-gray: 0 0% 96%;
+    /* Black Friday Specific Colors */
+    --bf-red: 0 100% 50%;
+    --bf-red-glow: 0 100% 45%;
+    --bf-yellow: 45 100% 51%;
+    --bf-orange: 25 100% 50%;
+    --bf-dark: 0 0% 5%;
+    --bf-darker: 0 0% 3%;
     
-    /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(0 0% 98%) 100%);
-    --gradient-cta: linear-gradient(135deg, hsl(0 85% 45%) 0%, hsl(0 85% 40%) 100%);
-    --gradient-black-friday: linear-gradient(135deg, hsl(0 0% 0%) 0%, hsl(0 85% 15%) 100%);
+    /* Dramatic Gradients */
+    --gradient-hero: radial-gradient(ellipse at center, hsl(0 50% 5%) 0%, hsl(0 0% 2%) 50%, hsl(0 0% 0%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(0 100% 50%) 0%, hsl(15 100% 45%) 50%, hsl(0 100% 50%) 100%);
+    --gradient-border: linear-gradient(135deg, hsl(0 100% 50%), hsl(25 100% 50%), hsl(45 100% 51%));
+    --gradient-glow: radial-gradient(circle, hsl(0 100% 50% / 0.3) 0%, transparent 70%);
     
-    /* Shadows */
-    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
-    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.1);
-    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.1);
-    --shadow-xl: 0 20px 25px -5px hsl(0 0% 0% / 0.1);
+    /* Dramatic Shadows */
+    --shadow-glow: 0 0 30px hsl(0 100% 50% / 0.5);
+    --shadow-glow-strong: 0 0 50px hsl(0 100% 50% / 0.7);
+    --shadow-product: 0 25px 60px hsl(0 0% 0% / 0.9);
+    --shadow-text: 0 4px 20px hsl(0 100% 50% / 0.4);
     
-    /* Animations */
+    /* Smooth Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 

@@ -38,61 +38,71 @@ const Features = () => {
   ];
 
   return (
-    <section className="py-20 md:py-32 bg-background">
-      <div className="container mx-auto px-4">
+    <section className="py-20 md:py-32 bg-card border-y-2 border-accent/20 relative overflow-hidden">
+      {/* Grid Pattern Background */}
+      <div className="absolute inset-0 opacity-5" style={{ 
+        backgroundImage: 'linear-gradient(hsl(0 100% 50% / 0.1) 1px, transparent 1px), linear-gradient(90deg, hsl(0 100% 50% / 0.1) 1px, transparent 1px)',
+        backgroundSize: '50px 50px'
+      }} />
+      
+      <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl md:text-6xl font-black mb-6">
-            The Ultimate Smart Glasses Experience
+          <h2 className="font-heading text-5xl md:text-7xl font-black mb-6 uppercase">
+            ESPECIFICAÇÕES
+            <span className="block text-accent">TÉCNICAS</span>
           </h2>
-          <p className="text-xl text-muted-foreground">
-            Iconic Ray-Ban style meets cutting-edge Meta technology
+          <p className="text-xl text-muted-foreground font-condensed font-bold">
+            Tecnologia de ponta da Ray-Ban e Meta em design icônico
           </p>
         </div>
 
-        {/* Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+        {/* Features Grid - Tech Specs Style */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-20">
           {features.map((feature, index) => (
-            <Card key={index} className="border-2 hover:border-accent transition-all duration-300 hover:shadow-xl group">
+            <Card key={index} className="bg-background border-2 border-accent/20 hover:border-accent transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,0,0,0.2)] group">
               <CardContent className="p-6 space-y-4">
-                <div className="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
-                  <feature.icon className="w-7 h-7 text-accent group-hover:text-accent-foreground" />
+                <div className="relative w-16 h-16 rounded-lg bg-accent/5 flex items-center justify-center group-hover:bg-accent/10 transition-all duration-300">
+                  <div className="absolute inset-0 bg-accent/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <feature.icon className="w-8 h-8 text-accent relative z-10" />
                 </div>
-                <h3 className="text-xl font-bold">{feature.title}</h3>
-                <p className="text-muted-foreground">{feature.description}</p>
+                <h3 className="font-heading text-2xl font-black uppercase">{feature.title}</h3>
+                <p className="text-muted-foreground font-condensed font-bold text-sm">{feature.description}</p>
               </CardContent>
             </Card>
           ))}
         </div>
 
-        {/* Lifestyle Images */}
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="relative overflow-hidden rounded-lg shadow-2xl group">
+        {/* Lifestyle Images - Dramatic */}
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="relative overflow-hidden rounded-lg border-2 border-accent/30 shadow-[0_0_30px_rgba(255,0,0,0.2)] group">
             <img 
               src={lifestyleImage} 
-              alt="Person wearing Ray-Ban Meta smart glasses outdoors" 
-              className="w-full h-[400px] object-cover group-hover:scale-105 transition-transform duration-500"
+              alt="Person wearing Ray-Ban Meta smart glasses" 
+              className="w-full h-[400px] object-cover group-hover:scale-110 transition-transform duration-700"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent flex items-end">
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-background mb-2">Style Meets Innovation</h3>
-                <p className="text-background/90">Classic Wayfarer design with smart technology</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent flex items-end">
+              <div className="p-8 w-full">
+                <h3 className="font-heading text-3xl font-black text-white mb-2 uppercase">ESTILO + INOVAÇÃO</h3>
+                <p className="text-white/90 font-condensed font-bold">Design Wayfarer clássico com tecnologia inteligente</p>
               </div>
             </div>
+            <div className="absolute inset-0 border-2 border-accent opacity-0 group-hover:opacity-100 transition-opacity" />
           </div>
           
-          <div className="relative overflow-hidden rounded-lg shadow-2xl group">
+          <div className="relative overflow-hidden rounded-lg border-2 border-accent/30 shadow-[0_0_30px_rgba(255,0,0,0.2)] group">
             <img 
               src={detailImage} 
-              alt="Close-up of Ray-Ban Meta smart glasses technology" 
-              className="w-full h-[400px] object-cover group-hover:scale-105 transition-transform duration-500"
+              alt="Close-up of Ray-Ban Meta technology" 
+              className="w-full h-[400px] object-cover group-hover:scale-110 transition-transform duration-700"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent flex items-end">
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-background mb-2">Premium Craftsmanship</h3>
-                <p className="text-background/90">Engineered for comfort and durability</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent flex items-end">
+              <div className="p-8 w-full">
+                <h3 className="font-heading text-3xl font-black text-white mb-2 uppercase">QUALIDADE PREMIUM</h3>
+                <p className="text-white/90 font-condensed font-bold">Engenharia de precisão para conforto e durabilidade</p>
               </div>
             </div>
+            <div className="absolute inset-0 border-2 border-accent opacity-0 group-hover:opacity-100 transition-opacity" />
           </div>
         </div>
       </div>
