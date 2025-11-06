@@ -45,7 +45,7 @@ const HeroSection = () => {
           loop
           playsInline
           preload="metadata"
-          className="absolute inset-0 w-full h-full object-contain sm:object-cover"
+          className="absolute inset-0 w-full h-full object-cover scale-90 sm:scale-100"
         >
           <source src={introVideo} type="video/mp4" />
         </video>
