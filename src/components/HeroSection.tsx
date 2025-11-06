@@ -33,7 +33,7 @@ const HeroSection = () => {
 
   return (
     <>
-      <section className="relative min-h-0 sm:min-h-screen aspect-[9/16] sm:aspect-auto overflow-hidden bg-[#E8E4DD]" style={{ isolation: 'isolate' }}>
+      <section className="relative min-h-0 sm:min-h-screen aspect-[9/16] sm:aspect-auto overflow-hidden bg-[#E8E4DD]">
         {/* Background Video */}
         <video
           ref={videoRef}
@@ -43,6 +43,7 @@ const HeroSection = () => {
           playsInline
           preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
+          style={{ isolation: 'isolate' }}
         >
           <source src={introVideo} type="video/mp4" />
         </video>
