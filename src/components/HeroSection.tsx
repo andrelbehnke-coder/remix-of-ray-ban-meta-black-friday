@@ -5,6 +5,7 @@ import CartButton from "./cart/CartButton";
 import CartDrawer from "./cart/CartDrawer";
 import CustomizationDrawer from "./customization/CustomizationDrawer";
 import { useCart } from "@/contexts/CartContext";
+import { useVideoLuminosity } from "@/hooks/useVideoLuminosity";
 import introVideo from "@/assets/intro-video.mp4";
 
 const HeroSection = () => {
@@ -13,6 +14,12 @@ const HeroSection = () => {
   const [isCustomizing, setIsCustomizing] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const { totalItems, addToCart } = useCart();
+
+  // Análise de luminosidade para mudar cor do texto dinamicamente
+  const isLightBackground = useVideoLuminosity(videoRef, [
+    { x: 0.2, y: 0.3, width: 0.6, height: 0.4 }, // Área dos logos e título
+    { x: 0.3, y: 0.85, width: 0.4, height: 0.1 }, // Área do CTA bottom
+  ]);
 
   const togglePlayPause = () => {
     if (!videoRef.current) return;
@@ -85,14 +92,14 @@ const HeroSection = () => {
         <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4">
           {/* Logos */}
           <div className="flex items-center gap-2 sm:gap-4 mb-6 sm:mb-8 opacity-0 animate-[heroSlideUp_1s_ease-out_0.3s_both]">
-            <span className="text-base sm:text-xl md:text-2xl font-bold text-black">Ray-Ban</span>
-            <span className="text-base sm:text-xl md:text-2xl text-gray-400">|</span>
-            <span className="text-base sm:text-xl md:text-2xl font-medium text-black">∞ Meta</span>
+            <span className={`text-base sm:text-xl md:text-2xl font-bold hero-text-contrast transition-colors duration-500 ease-in-out ${isLightBackground ? 'text-black' : 'text-white'}`}>Ray-Ban</span>
+            <span className={`text-base sm:text-xl md:text-2xl hero-text-contrast transition-colors duration-500 ease-in-out ${isLightBackground ? 'text-gray-400' : 'text-gray-300'}`}>|</span>
+            <span className={`text-base sm:text-xl md:text-2xl font-medium hero-text-contrast transition-colors duration-500 ease-in-out ${isLightBackground ? 'text-black' : 'text-white'}`}>∞ Meta</span>
           </div>
 
           {/* Main Title */}
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-center leading-tight tracking-tight text-black max-w-4xl opacity-0 animate-[heroSlideUp_1.2s_ease-out_0.5s_both]">
-            MEET THE <span className="text-gray-400">NEW</span> AI GLASSES
+          <h1 className={`text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-center leading-tight tracking-tight max-w-4xl hero-text-contrast transition-colors duration-500 ease-in-out opacity-0 animate-[heroSlideUp_1.2s_ease-out_0.5s_both] ${isLightBackground ? 'text-black' : 'text-white'}`}>
+            MEET THE <span className={`transition-colors duration-500 ease-in-out ${isLightBackground ? 'text-gray-400' : 'text-gray-300'}`}>NEW</span> AI GLASSES
           </h1>
         </div>
 
@@ -100,7 +107,7 @@ const HeroSection = () => {
         <div className="absolute bottom-8 sm:bottom-12 left-0 right-0 z-40 flex flex-col items-center gap-3 px-4 pb-safe opacity-0 animate-[heroSlideUp_1.4s_ease-out_0.7s_both]">
           <button 
             onClick={handleScrollToDiscover}
-            className="text-xs sm:text-sm font-semibold tracking-wider uppercase text-black hover:text-gray-700 transition-colors animate-[heroBounce_2s_ease-in-out_infinite]"
+            className={`text-xs sm:text-sm font-semibold tracking-wider uppercase hero-text-contrast transition-colors duration-500 ease-in-out hover:opacity-70 animate-[heroBounce_2s_ease-in-out_infinite] ${isLightBackground ? 'text-black' : 'text-white'}`}
             aria-label="Rolar para descobrir mais"
           >
             SCROLL TO DISCOVER
@@ -108,17 +115,17 @@ const HeroSection = () => {
           
           <button 
             onClick={togglePlayPause}
-            className="rounded-full border-2 border-black w-10 h-10 sm:w-12 sm:h-12 bg-white/30 backdrop-blur-md flex items-center justify-center hover:bg-white/50 hover:scale-110 transition-all"
+            className={`rounded-full border-2 w-10 h-10 sm:w-12 sm:h-12 bg-white/30 backdrop-blur-md flex items-center justify-center hover:bg-white/50 hover:scale-110 transition-all duration-500 ${isLightBackground ? 'border-black' : 'border-white'}`}
             aria-label={isPlaying ? "Pausar vídeo" : "Reproduzir vídeo"}
           >
             {isPlaying ? (
-              <Pause className="w-4 h-4 sm:w-5 sm:h-5 text-black" />
+              <Pause className={`w-4 h-4 sm:w-5 sm:h-5 transition-colors duration-500 ${isLightBackground ? 'text-black' : 'text-white'}`} />
             ) : (
-              <Play className="w-4 h-4 sm:w-5 sm:h-5 text-black ml-0.5" />
+              <Play className={`w-4 h-4 sm:w-5 sm:h-5 ml-0.5 transition-colors duration-500 ${isLightBackground ? 'text-black' : 'text-white'}`} />
             )}
           </button>
           
-          <p className="text-[10px] sm:text-xs text-center text-black/70 max-w-xs sm:max-w-md leading-relaxed">
+          <p className={`text-[10px] sm:text-xs text-center max-w-xs sm:max-w-md leading-relaxed hero-text-contrast transition-colors duration-500 ease-in-out ${isLightBackground ? 'text-black/70' : 'text-white/70'}`}>
             Get assistance from a sighted volunteer with Be My Eyes®.
           </p>
         </div>
