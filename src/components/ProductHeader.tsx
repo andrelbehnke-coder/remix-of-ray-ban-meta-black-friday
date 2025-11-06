@@ -1,7 +1,13 @@
-import { Heart, Share2 } from "lucide-react";
+import { useState } from "react";
+import { Heart } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import CartButton from "./cart/CartButton";
+import CartDrawer from "./cart/CartDrawer";
+import { useCart } from "@/contexts/CartContext";
 
 const ProductHeader = () => {
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const { totalItems } = useCart();
   return (
     <div className="sticky top-0 z-50 bg-white border-b border-border pt-safe">
       {/* Ray-Ban Red Banner */}
@@ -19,11 +25,20 @@ const ProductHeader = () => {
             <h1 className="text-lg font-bold truncate">RAY-BAN | META WAYFARER</h1>
             <Badge variant="destructive" className="text-xs mt-1">NEW</Badge>
           </div>
-          <button className="p-2 hover:bg-muted rounded-full transition-colors">
-            <Heart className="w-5 h-5" />
-          </button>
+          <div className="flex items-center gap-2">
+            <button className="p-2 hover:bg-muted rounded-full transition-colors">
+              <Heart className="w-5 h-5" />
+            </button>
+            <CartButton 
+              itemCount={totalItems}
+              onClick={() => setIsCartOpen(true)}
+            />
+          </div>
         </div>
       </div>
+      
+      {/* Cart Drawer */}
+      <CartDrawer open={isCartOpen} onOpenChange={setIsCartOpen} />
     </div>
   );
 };

@@ -1,10 +1,20 @@
+import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Check, ChevronRight, Info } from "lucide-react";
 import colorVariant from "@/assets/colors/color-variant.webp";
+import CustomizationDrawer from "./customization/CustomizationDrawer";
+import { useCart } from "@/contexts/CartContext";
 
 const ProductInfo = () => {
+  const [isCustomizing, setIsCustomizing] = useState(false);
+  const { addToCart } = useCart();
+
+  const handleAddToBag = (customization: any, price: number) => {
+    addToCart(customization, price);
+    setIsCustomizing(false);
+  };
   const colors = [
     { name: "Transparent", available: false, selected: false },
     { name: "Shiny Black", available: false, selected: false },
@@ -95,6 +105,7 @@ const ProductInfo = () => {
 
       {/* CTA Button */}
       <Button 
+        onClick={() => setIsCustomizing(true)}
         size="lg" 
         className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-4 text-sm sm:text-base"
       >
@@ -104,6 +115,13 @@ const ProductInfo = () => {
       <p className="text-center text-xs text-muted-foreground">
         Prescription available
       </p>
+
+      {/* Customization Drawer */}
+      <CustomizationDrawer
+        open={isCustomizing}
+        onOpenChange={setIsCustomizing}
+        onAddToBag={handleAddToBag}
+      />
 
       {/* Size */}
       <Card className="p-4">
