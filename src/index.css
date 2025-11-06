@@ -126,25 +126,6 @@ All colors MUST be HSL.
   .pr-safe {
     padding-right: env(safe-area-inset-right);
   }
-
-  /* Contraste de texto para hero */
-  .hero-text-contrast {
-    text-shadow: 
-      0 0 20px rgba(255, 255, 255, 0.9),
-      0 0 40px rgba(255, 255, 255, 0.7),
-      0 0 60px rgba(255, 255, 255, 0.5),
-      0 2px 8px rgba(0, 0, 0, 0.5),
-      0 4px 16px rgba(0, 0, 0, 0.3);
-  }
-
-  /* Quando fundo é claro, inverter sombra */
-  .text-black.hero-text-contrast {
-    text-shadow: 
-      0 0 20px rgba(0, 0, 0, 0.3),
-      0 0 40px rgba(0, 0, 0, 0.2),
-      0 2px 8px rgba(255, 255, 255, 0.6),
-      0 4px 16px rgba(255, 255, 255, 0.4);
-  }
 }
 
 @keyframes heroSlideUp {
