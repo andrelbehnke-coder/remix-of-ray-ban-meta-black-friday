@@ -1,18 +1,15 @@
 import { useState, useRef } from "react";
-import { Menu, Heart, Play, Pause } from "lucide-react";
+import { Play, Pause } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import CartButton from "./cart/CartButton";
-import CartDrawer from "./cart/CartDrawer";
 import CustomizationDrawer from "./customization/CustomizationDrawer";
 import { useCart } from "@/contexts/CartContext";
 import introVideo from "@/assets/intro-video.mp4";
 
 const HeroSection = () => {
   const [isPlaying, setIsPlaying] = useState(true);
-  const [isCartOpen, setIsCartOpen] = useState(false);
   const [isCustomizing, setIsCustomizing] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const { totalItems, addToCart } = useCart();
+  const { addToCart } = useCart();
 
   const togglePlayPause = () => {
     if (!videoRef.current) return;
@@ -53,34 +50,18 @@ const HeroSection = () => {
 
         {/* Floating Header */}
         <header className="absolute top-0 left-0 right-0 z-50 pt-4 pt-safe px-4 sm:px-6">
-          <div className="flex items-center justify-between backdrop-blur-sm bg-white/10 rounded-full px-3 py-2 sm:px-4 sm:py-3">
-            <button 
-              className="p-2 hover:bg-white/20 rounded-full transition-colors"
-              aria-label="Menu"
+          <div className="flex items-center justify-center">
+            <Button
+              onClick={() => setIsCustomizing(true)}
+              className="bg-[#CC0000] hover:bg-[#AA0000] text-white font-bold px-6 py-2.5 sm:px-8 sm:py-3 rounded-full text-sm sm:text-base transition-all hover:scale-105 shadow-lg"
             >
-              <Menu className="w-5 h-5 sm:w-6 sm:h-6 blend-text" />
-            </button>
-            
-            <div className="flex items-center gap-2">
-              <button className="p-2 hover:bg-white/20 rounded-full transition-colors">
-                <Heart className="w-5 h-5 blend-text" />
-              </button>
-              <CartButton 
-                itemCount={totalItems}
-                onClick={() => setIsCartOpen(true)}
-              />
-              <Button
-                onClick={() => setIsCustomizing(true)}
-                className="bg-[#E86C3B] hover:bg-[#E86C3B]/90 text-white font-semibold px-4 py-2 sm:px-6 sm:py-2.5 rounded-full text-xs sm:text-sm transition-all hover:scale-105"
-              >
-                BUY NOW
-              </Button>
-            </div>
+              BUY NOW
+            </Button>
           </div>
         </header>
 
         {/* Main Content */}
-        <div className="relative flex flex-col items-center justify-center h-full px-4 py-20 sm:py-0 sm:min-h-screen">
+        <div className="relative flex flex-col items-center justify-start h-full px-4 pt-24 sm:pt-32 pb-20 sm:pb-0 sm:min-h-screen">
           {/* Logos */}
           <div className="flex items-center gap-2 sm:gap-4 mb-4 sm:mb-8">
             <span className="blend-text text-base sm:text-xl md:text-2xl font-bold opacity-0 animate-[heroSlideUp_1s_ease-out_0.3s_both]">
@@ -127,9 +108,6 @@ const HeroSection = () => {
           </p>
         </div>
       </section>
-
-      {/* Cart Drawer */}
-      <CartDrawer open={isCartOpen} onOpenChange={setIsCartOpen} />
 
       {/* Customization Drawer */}
       <CustomizationDrawer
