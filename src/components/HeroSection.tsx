@@ -45,7 +45,7 @@ const HeroSection = () => {
           loop
           playsInline
           preload="metadata"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-contain sm:object-cover"
         >
           <source src={introVideo} type="video/mp4" />
         </video>
@@ -58,12 +58,12 @@ const HeroSection = () => {
               className="p-2 hover:bg-white/20 rounded-full transition-colors"
               aria-label="Menu"
             >
-              <Menu className="w-5 h-5 sm:w-6 sm:h-6 text-black" />
+              <Menu className="w-5 h-5 sm:w-6 sm:h-6 blend-text" />
             </button>
             
             <div className="flex items-center gap-2">
               <button className="p-2 hover:bg-white/20 rounded-full transition-colors">
-                <Heart className="w-5 h-5 text-black" />
+                <Heart className="w-5 h-5 blend-text" />
               </button>
               <CartButton 
                 itemCount={totalItems}
@@ -82,14 +82,14 @@ const HeroSection = () => {
         {/* Main Content */}
         <div className="relative flex flex-col items-center justify-center min-h-screen px-4">
           {/* Logos */}
-          <div className="flex items-center gap-2 sm:gap-4 mb-6 sm:mb-8 opacity-0 animate-[heroSlideUp_1s_ease-out_0.3s_both]">
-            <span className="blend-text text-base sm:text-xl md:text-2xl font-bold">
+          <div className="flex items-center gap-2 sm:gap-4 mb-6 sm:mb-8">
+            <span className="blend-text text-base sm:text-xl md:text-2xl font-bold opacity-0 animate-[heroSlideUp_1s_ease-out_0.3s_both]">
               Ray-Ban
             </span>
-            <span className="blend-text text-base sm:text-xl md:text-2xl">
+            <span className="blend-text text-base sm:text-xl md:text-2xl opacity-0 animate-[heroSlideUp_1s_ease-out_0.3s_both]">
               |
             </span>
-            <span className="blend-text text-base sm:text-xl md:text-2xl font-medium">
+            <span className="blend-text text-base sm:text-xl md:text-2xl font-medium opacity-0 animate-[heroSlideUp_1s_ease-out_0.3s_both]">
               ∞ Meta
             </span>
           </div>
@@ -101,10 +101,10 @@ const HeroSection = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="absolute bottom-8 sm:bottom-12 left-0 right-0 flex flex-col items-center gap-3 px-4 pb-safe opacity-0 animate-[heroSlideUp_1.4s_ease-out_0.7s_both]">
+        <div className="absolute bottom-8 sm:bottom-12 left-0 right-0 flex flex-col items-center gap-3 px-4 pb-safe">
           <button 
             onClick={handleScrollToDiscover}
-            className="blend-text text-xs sm:text-sm font-semibold tracking-wider uppercase hover:opacity-80 transition-opacity animate-[heroBounce_2s_ease-in-out_infinite]"
+            className="blend-text text-xs sm:text-sm font-semibold tracking-wider uppercase hover:opacity-80 transition-opacity animate-[heroBounce_2s_ease-in-out_infinite] opacity-0 animate-[heroSlideUp_1.4s_ease-out_0.7s_both]"
             aria-label="Rolar para descobrir mais"
           >
             SCROLL TO DISCOVER
@@ -112,7 +112,7 @@ const HeroSection = () => {
           
           <button 
             onClick={togglePlayPause}
-            className="blend-text rounded-full w-10 h-10 sm:w-12 sm:h-12 bg-white/30 backdrop-blur-md flex items-center justify-center hover:bg-white/50 hover:scale-110 transition-all border-2 border-white"
+            className="blend-text rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center hover:scale-110 transition-all border-2 border-white opacity-0 animate-[heroSlideUp_1.4s_ease-out_0.8s_both]"
             aria-label={isPlaying ? "Pausar vídeo" : "Reproduzir vídeo"}
           >
             {isPlaying ? (
@@ -122,7 +122,7 @@ const HeroSection = () => {
             )}
           </button>
           
-          <p className="blend-text text-[10px] sm:text-xs text-center max-w-xs sm:max-w-md leading-relaxed opacity-70">
+          <p className="blend-text text-[10px] sm:text-xs text-center max-w-xs sm:max-w-md leading-relaxed opacity-70 opacity-0 animate-[heroSlideUp_1.4s_ease-out_0.9s_both]">
             Get assistance from a sighted volunteer with Be My Eyes®.
           </p>
         </div>
