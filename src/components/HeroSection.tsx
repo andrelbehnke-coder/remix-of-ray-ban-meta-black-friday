@@ -50,7 +50,7 @@ const HeroSection = () => {
 
         {/* Floating Header */}
         <header className="absolute top-0 left-0 right-0 z-50 pt-4 pt-safe px-4 sm:px-6">
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-end">
             <Button
               onClick={() => setIsCustomizing(true)}
               className="bg-[#CC0000] hover:bg-[#AA0000] text-white font-bold px-6 py-2.5 sm:px-8 sm:py-3 rounded-full text-sm sm:text-base transition-all hover:scale-105 shadow-lg"
