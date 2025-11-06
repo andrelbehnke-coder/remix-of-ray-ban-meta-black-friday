@@ -1,10 +1,8 @@
-import { useState } from "react";
 import { Camera, Brain, Music, Languages } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 
 const VideoFeatures = () => {
-  const [playingVideo, setPlayingVideo] = useState<string | null>(null);
-
   const videos = [
     {
       title: "Hands-Free Video",
@@ -37,60 +35,50 @@ const VideoFeatures = () => {
       <div className="container mx-auto px-4">
         <h2 className="text-xl sm:text-2xl font-bold mb-6">FEATURES</h2>
         
-        <div className="space-y-4">
-          {videos.map((video, index) => {
-            const Icon = video.icon;
-            const isPlaying = playingVideo === video.url;
-            
-            return (
-              <Card key={index} className="overflow-hidden">
-                <div className="relative aspect-video bg-muted">
-                  {!isPlaying ? (
-                    <>
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full"
+        >
+          <CarouselContent className="-ml-2 md:-ml-4">
+            {videos.map((video, index) => {
+              const Icon = video.icon;
+              
+              return (
+                <CarouselItem key={index} className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3">
+                  <Card className="overflow-hidden">
+                    <div className="relative aspect-video bg-muted rounded-t-lg overflow-hidden">
                       <video
                         className="w-full h-full object-cover"
-                        preload="auto"
+                        autoPlay
                         muted
+                        loop
                         playsInline
+                        preload="auto"
                       >
                         <source src={video.url} type="video/mp4" />
                       </video>
-                      <div
-                        onClick={() => setPlayingVideo(video.url)}
-                        className="absolute inset-0 flex items-center justify-center bg-black/30 cursor-pointer hover:bg-black/40 transition-colors"
-                      >
-                        <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-lg">
-                          <svg className="w-8 h-8 text-primary ml-1" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8 5v14l11-7z"/>
-                          </svg>
-                        </div>
+                    </div>
+                    
+                    <div className="p-4 flex items-start gap-3">
+                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <Icon className="w-5 h-5 text-primary" />
                       </div>
-                    </>
-                  ) : (
-                    <video
-                      className="w-full h-full object-cover"
-                      controls
-                      autoPlay
-                      onEnded={() => setPlayingVideo(null)}
-                    >
-                      <source src={video.url} type="video/mp4" />
-                    </video>
-                  )}
-                </div>
-                
-                <div className="p-3 sm:p-4 flex items-start gap-2 sm:gap-3">
-                  <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center flex-shrink-0">
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1 text-sm sm:text-base">{video.title}</h3>
-                    <p className="text-xs sm:text-sm text-muted-foreground">{video.description}</p>
-                  </div>
-                </div>
-              </Card>
-            );
-          })}
-        </div>
+                      <div>
+                        <h3 className="font-semibold text-base mb-1">{video.title}</h3>
+                        <p className="text-sm text-muted-foreground">{video.description}</p>
+                      </div>
+                    </div>
+                  </Card>
+                </CarouselItem>
+              );
+            })}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
       </div>
     </section>
   );
