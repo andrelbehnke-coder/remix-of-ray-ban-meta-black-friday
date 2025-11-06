@@ -45,7 +45,7 @@ const ProductGalleryMobile = () => {
   };
 
   return (
-    <div className="bg-muted">
+    <div id="product-gallery" className="bg-muted">
       {/* Main Image */}
       <div 
         className="relative aspect-square overflow-hidden"

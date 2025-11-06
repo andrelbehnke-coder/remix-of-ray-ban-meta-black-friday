@@ -1,4 +1,4 @@
-import ProductHeader from "@/components/ProductHeader";
+import HeroSection from "@/components/HeroSection";
 import ProductGalleryMobile from "@/components/ProductGalleryMobile";
 import ProductInfo from "@/components/ProductInfo";
 import VideoFeatures from "@/components/VideoFeatures";
@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <ProductHeader />
+      <HeroSection />
       <ProductGalleryMobile />
       <ProductInfo />
       <VideoFeatures />
