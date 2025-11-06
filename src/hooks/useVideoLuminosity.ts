@@ -10,9 +10,11 @@ interface AnalysisArea {
 export const useVideoLuminosity = (
   videoRef: RefObject<HTMLVideoElement>,
   areas: AnalysisArea[] = [{ x: 0.2, y: 0.3, width: 0.6, height: 0.4 }],
-  threshold: number = 128
+  threshold: number = 150
 ) => {
-  const [isLightBackground, setIsLightBackground] = useState(false);
+  const [luminosityStates, setLuminosityStates] = useState<boolean[]>(
+    areas.map(() => false)
+  );
   
   useEffect(() => {
     const video = videoRef.current;
@@ -27,8 +29,8 @@ export const useVideoLuminosity = (
     
     let animationFrameId: number;
     let lastCheck = 0;
-    const checkInterval = 100;
-    const hysteresisMargin = 20;
+    const checkInterval = 50;
+    const hysteresisMargin = 15;
     
     const analyzeFrame = (timestamp: number) => {
       if (timestamp - lastCheck < checkInterval) {
@@ -39,10 +41,7 @@ export const useVideoLuminosity = (
       lastCheck = timestamp;
       ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
       
-      let totalLuminosity = 0;
-      let pixelCount = 0;
-      
-      areas.forEach(area => {
+      const newStates = areas.map((area, index) => {
         const x = Math.floor(canvas.width * area.x);
         const y = Math.floor(canvas.height * area.y);
         const width = Math.floor(canvas.width * area.width);
@@ -50,6 +49,9 @@ export const useVideoLuminosity = (
         
         const imageData = ctx.getImageData(x, y, width, height);
         const data = imageData.data;
+        
+        let totalLuminosity = 0;
+        let pixelCount = 0;
         
         for (let i = 0; i < data.length; i += 4) {
           const r = data[i];
@@ -59,15 +61,23 @@ export const useVideoLuminosity = (
           totalLuminosity += luminosity;
           pixelCount++;
         }
+        
+        const averageLuminosity = totalLuminosity / pixelCount;
+        const currentState = luminosityStates[index];
+        
+        // Hysteresis individual para cada área
+        if (currentState && averageLuminosity < threshold - hysteresisMargin) {
+          return false;
+        } else if (!currentState && averageLuminosity > threshold + hysteresisMargin) {
+          return true;
+        }
+        
+        return currentState;
       });
       
-      const averageLuminosity = totalLuminosity / pixelCount;
-      
-      // Hysteresis para evitar flickering
-      if (isLightBackground && averageLuminosity < threshold - hysteresisMargin) {
-        setIsLightBackground(false);
-      } else if (!isLightBackground && averageLuminosity > threshold + hysteresisMargin) {
-        setIsLightBackground(true);
+      // Só atualiza se houver mudança
+      if (newStates.some((state, index) => state !== luminosityStates[index])) {
+        setLuminosityStates(newStates);
       }
       
       animationFrameId = requestAnimationFrame(analyzeFrame);
@@ -86,7 +96,7 @@ export const useVideoLuminosity = (
       cancelAnimationFrame(animationFrameId);
       video.removeEventListener('loadeddata', startAnalysis);
     };
-  }, [videoRef, areas, threshold, isLightBackground]);
+  }, [videoRef, areas, threshold]);
   
-  return isLightBackground;
+  return luminosityStates;
 };

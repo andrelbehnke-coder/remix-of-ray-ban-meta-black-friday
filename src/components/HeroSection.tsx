@@ -15,11 +15,15 @@ const HeroSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const { totalItems, addToCart } = useCart();
   
-  const isLightBackground = useVideoLuminosity(videoRef, [
+  const luminosityStates = useVideoLuminosity(videoRef, [
     { x: 0.2, y: 0.3, width: 0.6, height: 0.15 }, // Logos
     { x: 0.15, y: 0.4, width: 0.7, height: 0.2 },  // Título
     { x: 0.3, y: 0.85, width: 0.4, height: 0.1 },  // Bottom CTA
   ]);
+  
+  const isLogosLight = luminosityStates[0] || false;
+  const isTitleLight = luminosityStates[1] || false;
+  const isCtaLight = luminosityStates[2] || false;
 
   const togglePlayPause = () => {
     if (!videoRef.current) return;
@@ -92,20 +96,20 @@ const HeroSection = () => {
         <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4">
           {/* Logos */}
           <div className="flex items-center gap-2 sm:gap-4 mb-6 sm:mb-8 opacity-0 animate-[heroSlideUp_1s_ease-out_0.3s_both]">
-            <span className={`text-base sm:text-xl md:text-2xl font-bold ${isLightBackground ? 'text-black' : 'text-white'} hero-text-contrast transition-colors duration-500 ease-in-out`}>
+            <span className={`text-base sm:text-xl md:text-2xl font-bold ${isLogosLight ? 'text-black' : 'text-white'} transition-colors duration-300 ease-in-out`}>
               Ray-Ban
             </span>
-            <span className={`text-base sm:text-xl md:text-2xl ${isLightBackground ? 'text-gray-400' : 'text-gray-300'} transition-colors duration-500 ease-in-out`}>
+            <span className={`text-base sm:text-xl md:text-2xl ${isLogosLight ? 'text-gray-400' : 'text-gray-300'} transition-colors duration-300 ease-in-out`}>
               |
             </span>
-            <span className={`text-base sm:text-xl md:text-2xl font-medium ${isLightBackground ? 'text-black' : 'text-white'} hero-text-contrast transition-colors duration-500 ease-in-out`}>
+            <span className={`text-base sm:text-xl md:text-2xl font-medium ${isLogosLight ? 'text-black' : 'text-white'} transition-colors duration-300 ease-in-out`}>
               ∞ Meta
             </span>
           </div>
 
           {/* Main Title */}
-          <h1 className={`text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-center leading-tight tracking-tight ${isLightBackground ? 'text-black' : 'text-white'} max-w-4xl hero-text-contrast transition-colors duration-500 ease-in-out opacity-0 animate-[heroSlideUp_1.2s_ease-out_0.5s_both]`}>
-            MEET THE <span className={`${isLightBackground ? 'text-gray-400' : 'text-gray-300'} transition-colors duration-500 ease-in-out`}>NEW</span> AI GLASSES
+          <h1 className={`text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-center leading-tight tracking-tight ${isTitleLight ? 'text-black' : 'text-white'} max-w-4xl transition-colors duration-300 ease-in-out opacity-0 animate-[heroSlideUp_1.2s_ease-out_0.5s_both]`}>
+            MEET THE <span className={`${isTitleLight ? 'text-gray-400' : 'text-gray-300'} transition-colors duration-300 ease-in-out`}>NEW</span> AI GLASSES
           </h1>
         </div>
 
@@ -113,7 +117,7 @@ const HeroSection = () => {
         <div className="absolute bottom-8 sm:bottom-12 left-0 right-0 z-40 flex flex-col items-center gap-3 px-4 pb-safe opacity-0 animate-[heroSlideUp_1.4s_ease-out_0.7s_both]">
           <button 
             onClick={handleScrollToDiscover}
-            className={`text-xs sm:text-sm font-semibold tracking-wider uppercase ${isLightBackground ? 'text-black hover:text-gray-700' : 'text-white hover:text-gray-300'} hero-text-contrast transition-colors duration-500 ease-in-out animate-[heroBounce_2s_ease-in-out_infinite]`}
+            className={`text-xs sm:text-sm font-semibold tracking-wider uppercase ${isCtaLight ? 'text-black hover:text-gray-700' : 'text-white hover:text-gray-300'} transition-colors duration-300 ease-in-out animate-[heroBounce_2s_ease-in-out_infinite]`}
             aria-label="Rolar para descobrir mais"
           >
             SCROLL TO DISCOVER
@@ -121,17 +125,17 @@ const HeroSection = () => {
           
           <button 
             onClick={togglePlayPause}
-            className={`rounded-full w-10 h-10 sm:w-12 sm:h-12 bg-white/30 backdrop-blur-md flex items-center justify-center hover:bg-white/50 hover:scale-110 transition-all ${isLightBackground ? 'border-2 border-black' : 'border-2 border-white'}`}
+            className={`rounded-full w-10 h-10 sm:w-12 sm:h-12 bg-white/30 backdrop-blur-md flex items-center justify-center hover:bg-white/50 hover:scale-110 transition-all ${isCtaLight ? 'border-2 border-black' : 'border-2 border-white'}`}
             aria-label={isPlaying ? "Pausar vídeo" : "Reproduzir vídeo"}
           >
             {isPlaying ? (
-              <Pause className={`w-4 h-4 sm:w-5 sm:h-5 ${isLightBackground ? 'text-black' : 'text-white'} transition-colors duration-500 ease-in-out`} />
+              <Pause className={`w-4 h-4 sm:w-5 sm:h-5 ${isCtaLight ? 'text-black' : 'text-white'} transition-colors duration-300 ease-in-out`} />
             ) : (
-              <Play className={`w-4 h-4 sm:w-5 sm:h-5 ml-0.5 ${isLightBackground ? 'text-black' : 'text-white'} transition-colors duration-500 ease-in-out`} />
+              <Play className={`w-4 h-4 sm:w-5 sm:h-5 ml-0.5 ${isCtaLight ? 'text-black' : 'text-white'} transition-colors duration-300 ease-in-out`} />
             )}
           </button>
           
-          <p className={`text-[10px] sm:text-xs text-center max-w-xs sm:max-w-md leading-relaxed ${isLightBackground ? 'text-black/70' : 'text-white/70'} transition-colors duration-500 ease-in-out`}>
+          <p className={`text-[10px] sm:text-xs text-center max-w-xs sm:max-w-md leading-relaxed ${isCtaLight ? 'text-black/70' : 'text-white/70'} transition-colors duration-300 ease-in-out`}>
             Get assistance from a sighted volunteer with Be My Eyes®.
           </p>
         </div>
