@@ -36,7 +36,7 @@ const HeroSection = () => {
 
   return (
     <>
-      <section className="relative min-h-screen overflow-hidden bg-[#E8E4DD]">
+      <section className="relative min-h-screen overflow-hidden bg-[#E8E4DD]" style={{ isolation: 'isolate' }}>
         {/* Background Video */}
         <video
           ref={videoRef}
@@ -45,7 +45,7 @@ const HeroSection = () => {
           loop
           playsInline
           preload="metadata"
-          className="absolute inset-0 w-full h-full object-cover animate-fade-in"
+          className="absolute inset-0 w-full h-full object-cover"
         >
           <source src={introVideo} type="video/mp4" />
         </video>
@@ -80,7 +80,7 @@ const HeroSection = () => {
         </header>
 
         {/* Main Content */}
-        <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4">
+        <div className="relative flex flex-col items-center justify-center min-h-screen px-4">
           {/* Logos */}
           <div className="flex items-center gap-2 sm:gap-4 mb-6 sm:mb-8 opacity-0 animate-[heroSlideUp_1s_ease-out_0.3s_both]">
             <span className="blend-text text-base sm:text-xl md:text-2xl font-bold">
@@ -101,7 +101,7 @@ const HeroSection = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="absolute bottom-8 sm:bottom-12 left-0 right-0 z-40 flex flex-col items-center gap-3 px-4 pb-safe opacity-0 animate-[heroSlideUp_1.4s_ease-out_0.7s_both]">
+        <div className="absolute bottom-8 sm:bottom-12 left-0 right-0 flex flex-col items-center gap-3 px-4 pb-safe opacity-0 animate-[heroSlideUp_1.4s_ease-out_0.7s_both]">
           <button 
             onClick={handleScrollToDiscover}
             className="blend-text text-xs sm:text-sm font-semibold tracking-wider uppercase hover:opacity-80 transition-opacity animate-[heroBounce_2s_ease-in-out_infinite]"
