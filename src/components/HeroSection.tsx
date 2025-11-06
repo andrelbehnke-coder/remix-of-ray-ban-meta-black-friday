@@ -50,8 +50,6 @@ const HeroSection = () => {
           <source src={introVideo} type="video/mp4" />
         </video>
 
-        {/* Subtle Overlay */}
-        <div className="absolute inset-0 bg-black/5" />
 
         {/* Floating Header */}
         <header className="absolute top-0 left-0 right-0 z-50 pt-4 pt-safe px-4 sm:px-6">
