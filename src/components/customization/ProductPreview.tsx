@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { FrameOption, LensOption } from "@/types/customization";
 import { getProductImage } from "@/data/productCombinations";
 import { cn } from "@/lib/utils";
@@ -14,6 +15,24 @@ const ProductPreview = ({ selectedFrame, selectedLens, className }: ProductPrevi
     selectedFrame?.id || null, 
     selectedLens?.id || null
   );
+  
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [displayImage, setDisplayImage] = useState<string | null>(productImage);
+
+  useEffect(() => {
+    if (productImage !== displayImage) {
+      // Start fade out
+      setIsTransitioning(true);
+      
+      // After fade out, change image and fade in
+      const timer = setTimeout(() => {
+        setDisplayImage(productImage);
+        setIsTransitioning(false);
+      }, 200);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [productImage, displayImage]);
 
   return (
     <div className={cn(
@@ -22,11 +41,17 @@ const ProductPreview = ({ selectedFrame, selectedLens, className }: ProductPrevi
     )}>
       {/* Container with aspect ratio 16:9 */}
       <div className="relative w-full aspect-video">
-        {productImage ? (
+        {displayImage ? (
           <img
-            src={productImage}
+            key={displayImage}
+            src={displayImage}
             alt={`${selectedFrame?.name} with ${selectedLens?.name}`}
-            className="absolute inset-0 w-full h-full object-contain p-4 sm:p-6 transition-opacity duration-300 animate-in fade-in-0 zoom-in-95"
+            className={cn(
+              "absolute inset-0 w-full h-full object-contain p-4 sm:p-6 transition-all duration-300 ease-in-out",
+              isTransitioning 
+                ? "opacity-0 scale-95" 
+                : "opacity-100 scale-100"
+            )}
           />
         ) : (
           <div className="absolute inset-0 flex flex-col items-center justify-center text-muted-foreground p-4">
@@ -40,7 +65,10 @@ const ProductPreview = ({ selectedFrame, selectedLens, className }: ProductPrevi
 
       {/* Info Badges */}
       {selectedFrame && selectedLens && (
-        <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between gap-2 text-xs">
+        <div className={cn(
+          "absolute bottom-2 left-2 right-2 flex items-center justify-between gap-2 text-xs transition-opacity duration-300",
+          isTransitioning ? "opacity-0" : "opacity-100"
+        )}>
           <div className="bg-background/95 backdrop-blur-sm px-3 py-1.5 rounded-md shadow-sm border border-border/50">
             <span className="font-semibold text-foreground">{selectedFrame.name}</span>
           </div>

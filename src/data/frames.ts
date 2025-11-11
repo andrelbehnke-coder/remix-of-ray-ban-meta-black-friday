@@ -1,6 +1,6 @@
 import { FrameOption } from "@/types/customization";
 
-export const FRAME_PRICE = 379.00;
+export const FRAME_PRICE = 139.00;
 
 export const frameOptions: FrameOption[] = [
   {
