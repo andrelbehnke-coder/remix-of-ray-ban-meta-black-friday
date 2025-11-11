@@ -17,7 +17,7 @@ const CartItem = ({ item, onRemove, onUpdateQuantity }: CartItemProps) => {
         <div className="text-xs text-muted-foreground space-y-1">
           <p>Frame: {item.customization.selectedFrame?.name}</p>
           <p>Lens: {item.customization.selectedLens?.name}</p>
-          <p className="capitalize">{item.customization.prescriptionType.replace('-', ' ')}</p>
+          <p>Bridge: {item.customization.bridgeType}</p>
         </div>
         <div className="flex items-center gap-3">
           <div className="flex items-center border border-border rounded-md">

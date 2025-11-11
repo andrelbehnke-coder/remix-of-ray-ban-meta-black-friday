@@ -8,7 +8,7 @@ export interface FrameOption {
 export interface LensOption {
   id: string;
   name: string;
-  category: 'sun' | 'transitions' | 'blue-light';
+  category: 'sun';
   image: string;
   additionalPrice: number;
   description?: string;
@@ -17,7 +17,6 @@ export interface LensOption {
 export interface CustomizationState {
   selectedFrame: FrameOption | null;
   selectedLens: LensOption | null;
-  prescriptionType: 'non-prescription' | 'prescription';
   bridgeType: string;
 }
 

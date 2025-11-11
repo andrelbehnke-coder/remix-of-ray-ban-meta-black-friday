@@ -7,7 +7,6 @@ export const useCustomization = () => {
   const [state, setState] = useState<CustomizationState>({
     selectedFrame: null,
     selectedLens: null,
-    prescriptionType: 'non-prescription',
     bridgeType: 'High Bridge Fit'
   });
 
@@ -25,25 +24,19 @@ export const useCustomization = () => {
     }
   };
 
-  const setPrescriptionType = (type: 'non-prescription' | 'prescription') => {
-    setState(prev => ({ ...prev, prescriptionType: type }));
-  };
-
   const priceBreakdown: PriceBreakdown = useMemo(() => {
-    const lensAdditionalPrice = state.selectedLens?.additionalPrice || 0;
     return {
       framePrice: FRAME_PRICE,
-      lensBasePrice: LENS_BASE_PRICE,
-      lensAdditionalPrice,
-      totalPrice: FRAME_PRICE + LENS_BASE_PRICE + lensAdditionalPrice
+      lensBasePrice: 0,
+      lensAdditionalPrice: 0,
+      totalPrice: FRAME_PRICE
     };
-  }, [state.selectedLens]);
+  }, []);
 
   const resetCustomization = () => {
     setState({
       selectedFrame: null,
       selectedLens: null,
-      prescriptionType: 'non-prescription',
       bridgeType: 'High Bridge Fit'
     });
   };
@@ -56,7 +49,6 @@ export const useCustomization = () => {
     state,
     selectFrame,
     selectLens,
-    setPrescriptionType,
     priceBreakdown,
     resetCustomization,
     isComplete,

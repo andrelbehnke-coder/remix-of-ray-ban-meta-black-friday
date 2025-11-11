@@ -14,19 +14,10 @@ const PriceSummary = ({ priceBreakdown, onConfirm, disabled }: PriceSummaryProps
         {/* Price Breakdown */}
         <div className="space-y-1.5 text-xs sm:text-sm">
           <div className="flex justify-between text-muted-foreground">
-            <span>Frame</span>
+            <span>Frame + Lenses</span>
             <span className="font-medium">${priceBreakdown.framePrice.toFixed(2)}</span>
           </div>
-          <div className="flex justify-between text-muted-foreground">
-            <span>Base Lenses</span>
-            <span className="font-medium">${priceBreakdown.lensBasePrice.toFixed(2)}</span>
-          </div>
-          {priceBreakdown.lensAdditionalPrice > 0 && (
-            <div className="flex justify-between text-muted-foreground">
-              <span>Lens Upgrade</span>
-              <span className="font-medium">+${priceBreakdown.lensAdditionalPrice.toFixed(2)}</span>
-            </div>
-          )}
+          
           <div className="flex justify-between text-base sm:text-lg font-bold pt-2 border-t border-border">
             <span>Total</span>
             <span>${priceBreakdown.totalPrice.toFixed(2)}</span>

@@ -11,6 +11,7 @@ import FrameSelector from "./FrameSelector";
 import LensSelector from "./LensSelector";
 import BridgeInfo from "./BridgeInfo";
 import PriceSummary from "./PriceSummary";
+import ProductPreview from "./ProductPreview";
 import { toast } from "sonner";
 
 interface CustomizationDrawerProps {
@@ -24,7 +25,6 @@ const CustomizationDrawer = ({ open, onOpenChange, onAddToBag }: CustomizationDr
     state,
     selectFrame,
     selectLens,
-    setPrescriptionType,
     priceBreakdown,
     resetCustomization,
     isComplete,
@@ -66,6 +66,15 @@ const CustomizationDrawer = ({ open, onOpenChange, onAddToBag }: CustomizationDr
           </div>
         </SheetHeader>
 
+        {/* Product Preview */}
+        <div className="px-4 sm:px-6 pt-4 sm:pt-6">
+          <ProductPreview 
+            selectedFrame={state.selectedFrame}
+            selectedLens={state.selectedLens}
+            className="mb-4 sm:mb-6"
+          />
+        </div>
+
         {/* Scrollable Content */}
         <div className="flex-1 overflow-y-auto px-4 sm:px-6 py-4 sm:py-6 space-y-6 sm:space-y-8 pb-32">
           {/* Frame Selection */}
@@ -84,9 +93,6 @@ const CustomizationDrawer = ({ open, onOpenChange, onAddToBag }: CustomizationDr
             selectedLens={state.selectedLens}
             onLensChange={selectLens}
             lensOptions={lensOptions}
-            prescriptionType={state.prescriptionType}
-            onPrescriptionChange={setPrescriptionType}
-            lensBasePrice={priceBreakdown.lensBasePrice}
           />
         </div>
 

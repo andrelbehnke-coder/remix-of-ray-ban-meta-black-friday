@@ -16,21 +16,9 @@ export const frameOptions: FrameOption[] = [
     available: true
   },
   {
-    id: 'shiny-cosmic-blue',
+    id: 'shiny-blue',
     name: 'Shiny Cosmic Blue',
     color: '#1e3a8a',
-    available: true
-  },
-  {
-    id: 'transparent-grey',
-    name: 'Transparent Grey',
-    color: '#6b7280',
-    available: true
-  },
-  {
-    id: 'havana',
-    name: 'Havana',
-    color: '#92400e',
     available: true
   }
 ];
