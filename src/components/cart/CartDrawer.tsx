@@ -1,4 +1,4 @@
-import { ShoppingBag } from "lucide-react";
+import { ShoppingBag, X } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -8,6 +8,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
 import CartItem from "./CartItem";
+import BlackFridayBanner from "./BlackFridayBanner";
 
 interface CartDrawerProps {
   open: boolean;
@@ -21,12 +22,24 @@ const CartDrawer = ({ open, onOpenChange }: CartDrawerProps) => {
     <Sheet open={open} onOpenChange={onOpenChange}>
       <SheetContent side="right" className="w-full sm:max-w-lg p-0 flex flex-col">
         {/* Header */}
-        <SheetHeader className="px-6 py-4 border-b border-border">
+        <SheetHeader className="px-6 py-4 border-b border-border relative">
           <SheetTitle className="text-lg font-bold uppercase flex items-center gap-2">
             <ShoppingBag className="w-5 h-5" />
             Shopping Bag ({items.length})
           </SheetTitle>
+          
+          {/* Close button */}
+          <button
+            onClick={() => onOpenChange(false)}
+            className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full hover:bg-muted transition-colors group"
+            aria-label="Close cart"
+          >
+            <X className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
+          </button>
         </SheetHeader>
+
+        {/* Black Friday Banner */}
+        <BlackFridayBanner />
 
         {/* Content */}
         {items.length === 0 ? (
