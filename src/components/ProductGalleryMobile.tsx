@@ -48,7 +48,7 @@ const ProductGalleryMobile = () => {
     <div id="product-gallery" className="bg-muted">
       {/* Main Image */}
       <div 
-        className="relative aspect-[4/5] sm:aspect-square overflow-hidden bg-white"
+        className="relative aspect-square overflow-hidden"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
@@ -56,11 +56,11 @@ const ProductGalleryMobile = () => {
         <img
           src={images[currentImage].src}
           alt={images[currentImage].alt}
-          className="w-full h-full object-cover sm:object-contain transition-transform duration-300"
+          className="w-full h-full object-contain transition-transform duration-300"
           loading={currentImage === 0 ? "eager" : "lazy"}
         />
         {/* Image Counter */}
-        <div className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-black/70 backdrop-blur-sm text-white px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-medium">
+        <div className="absolute top-4 right-4 bg-black/50 text-white px-3 py-1 rounded-full text-xs font-medium">
           {currentImage + 1} / {images.length}
         </div>
       </div>
