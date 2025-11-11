@@ -12,6 +12,8 @@ import LensSelector from "./LensSelector";
 import BridgeInfo from "./BridgeInfo";
 import PriceSummary from "./PriceSummary";
 import ProductPreview from "./ProductPreview";
+import BrandingSection from "./BrandingSection";
+import BlackFridayBanner from "../cart/BlackFridayBanner";
 import { toast } from "sonner";
 
 interface CustomizationDrawerProps {
@@ -66,6 +68,9 @@ const CustomizationDrawer = ({ open, onOpenChange, onAddToBag }: CustomizationDr
           </div>
         </SheetHeader>
 
+        {/* Black Friday Banner */}
+        <BlackFridayBanner />
+
         {/* Product Preview */}
         <div className="px-4 sm:px-6 pt-4 sm:pt-6">
           <ProductPreview 
@@ -73,6 +78,9 @@ const CustomizationDrawer = ({ open, onOpenChange, onAddToBag }: CustomizationDr
             selectedLens={state.selectedLens}
             className="mb-4 sm:mb-6"
           />
+          
+          {/* Branding Section */}
+          <BrandingSection />
         </div>
 
         {/* Scrollable Content */}

@@ -8,7 +8,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
 import CartItem from "./CartItem";
-import BlackFridayBanner from "./BlackFridayBanner";
 
 interface CartDrawerProps {
   open: boolean;
@@ -37,9 +36,6 @@ const CartDrawer = ({ open, onOpenChange }: CartDrawerProps) => {
             <X className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
           </button>
         </SheetHeader>
-
-        {/* Black Friday Banner */}
-        <BlackFridayBanner />
 
         {/* Content */}
         {items.length === 0 ? (

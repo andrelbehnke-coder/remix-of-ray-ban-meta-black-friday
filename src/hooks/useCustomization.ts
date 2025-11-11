@@ -5,8 +5,8 @@ import { LENS_BASE_PRICE, lensOptions } from '@/data/lenses';
 
 export const useCustomization = () => {
   const [state, setState] = useState<CustomizationState>({
-    selectedFrame: null,
-    selectedLens: null,
+    selectedFrame: frameOptions.find(f => f.id === 'matte-black') || null,
+    selectedLens: lensOptions.find(l => l.id === 'polar-grey') || null,
     bridgeType: 'High Bridge Fit'
   });
 
