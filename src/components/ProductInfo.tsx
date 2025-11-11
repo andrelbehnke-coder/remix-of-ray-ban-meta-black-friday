@@ -15,59 +15,9 @@ const ProductInfo = () => {
     addToCart(customization, price);
     setIsCustomizing(false);
   };
-  const colors = [
-    { name: "Transparent", available: false, selected: false },
-    { name: "Shiny Black", available: false, selected: false },
-    { name: "Matte Black", available: true, selected: true },
-    { name: "Caramel", available: false, selected: false },
-    { name: "Wayfarer Black", available: false, selected: false },
-    { name: "Jeans", available: false, selected: false },
-  ];
 
   return (
     <div className="container mx-auto px-4 py-6 space-y-6">
-      {/* Colors */}
-      <Card className="p-4">
-        <div className="flex items-center justify-between mb-3">
-          <h3 className="font-semibold text-sm">6 COLORS</h3>
-          <span className="text-xs text-muted-foreground">(Gen 2)</span>
-        </div>
-        <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-6 gap-3">
-          {colors.map((color, index) => (
-            <div key={index} className="relative">
-              <button
-                disabled={!color.available}
-                className={`aspect-square rounded-lg border-2 transition-all w-full bg-white p-2 overflow-hidden ${
-                  color.selected
-                    ? "border-[#cc0000] ring-2 ring-[#cc0000]/20"
-                    : color.available
-                    ? "border-gray-200 hover:border-gray-400 hover:shadow-md"
-                    : "border-gray-200 cursor-not-allowed"
-                }`}
-              >
-                <img
-                  src={colorVariant}
-                  alt={color.name}
-                  className={`w-full h-full object-contain transition-all ${
-                    !color.available ? "grayscale opacity-50" : ""
-                  }`}
-                  loading="lazy"
-                />
-                <span className="sr-only">{color.name}</span>
-              </button>
-              {!color.available && (
-                <span className="absolute -top-2 -right-2 bg-red-600 text-white text-[9px] font-bold px-2 py-1 rounded-md shadow-sm z-10">
-                  SOLD OUT
-                </span>
-              )}
-              {color.selected && (
-                <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-[#cc0000] rounded-full" />
-              )}
-            </div>
-          ))}
-        </div>
-      </Card>
-
       {/* Specifications */}
       <Card className="p-4 space-y-3">
         <div className="flex items-start justify-between">
