@@ -55,16 +55,19 @@ const CustomizationDrawer = ({ open, onOpenChange, onAddToBag }: CustomizationDr
         className="w-full sm:max-w-2xl p-0 flex flex-col overflow-hidden"
       >
         {/* Header */}
-        <SheetHeader className="px-6 py-4 border-b border-border">
-          <div className="flex items-center justify-between">
-            <SheetTitle className="text-lg font-bold uppercase">
+        <SheetHeader className="px-4 sm:px-6 py-3 sm:py-4 border-b border-border bg-background sticky top-0 z-10">
+          <div className="flex items-center justify-between gap-4">
+            <SheetTitle className="text-sm sm:text-base font-bold uppercase tracking-tight">
               Choose Your Frame & Lens Color
             </SheetTitle>
+            <div className="text-xs sm:text-sm font-bold whitespace-nowrap">
+              ${priceBreakdown.totalPrice.toFixed(2)}
+            </div>
           </div>
         </SheetHeader>
 
         {/* Scrollable Content */}
-        <div className="flex-1 overflow-y-auto px-6 py-6 space-y-8 pb-32">
+        <div className="flex-1 overflow-y-auto px-4 sm:px-6 py-4 sm:py-6 space-y-6 sm:space-y-8 pb-32">
           {/* Frame Selection */}
           <FrameSelector
             selectedFrame={state.selectedFrame}

@@ -1,5 +1,9 @@
 import { Info } from "lucide-react";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
 
 interface BridgeInfoProps {
   bridgeType: string;
@@ -7,27 +11,31 @@ interface BridgeInfoProps {
 
 const BridgeInfo = ({ bridgeType }: BridgeInfoProps) => {
   return (
-    <div className="flex items-center justify-between py-3 px-4 bg-muted/50 rounded-lg">
+    <div className="space-y-2">
       <div className="flex items-center gap-2">
-        <span className="text-sm font-medium text-foreground">
-          BRIDGE AND NOSEPADS: <span className="font-semibold">{bridgeType}</span>
-        </span>
-        <Popover>
-          <PopoverTrigger asChild>
+        <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wide">
+          Bridge and Nosepads
+        </h3>
+        <HoverCard>
+          <HoverCardTrigger asChild>
             <button className="text-muted-foreground hover:text-foreground transition-colors">
               <Info className="w-4 h-4" />
             </button>
-          </PopoverTrigger>
-          <PopoverContent className="w-80">
+          </HoverCardTrigger>
+          <HoverCardContent className="w-80 text-sm">
             <div className="space-y-2">
-              <h4 className="font-semibold text-sm">High Bridge Fit</h4>
-              <p className="text-sm text-muted-foreground">
+              <p className="font-semibold">High Bridge Fit</p>
+              <p className="text-muted-foreground text-xs">
                 Designed for those with a higher nose bridge. The frame rests higher on the face, 
                 providing a more comfortable fit and preventing the frames from sliding down.
               </p>
             </div>
-          </PopoverContent>
-        </Popover>
+          </HoverCardContent>
+        </HoverCard>
+      </div>
+      
+      <div className="flex items-center gap-2 px-3 py-2 bg-muted/50 rounded-md">
+        <span className="text-xs sm:text-sm font-medium">{bridgeType}</span>
       </div>
     </div>
   );

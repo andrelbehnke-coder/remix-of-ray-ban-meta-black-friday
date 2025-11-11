@@ -9,43 +9,37 @@ interface PriceSummaryProps {
 
 const PriceSummary = ({ priceBreakdown, onConfirm, disabled }: PriceSummaryProps) => {
   return (
-    <div className="sticky bottom-0 left-0 right-0 bg-background border-t border-border shadow-lg">
-      <div className="p-4 space-y-4">
+    <div className="sticky bottom-0 left-0 right-0 bg-background border-t border-border shadow-2xl">
+      <div className="px-4 sm:px-6 py-3 sm:py-4 space-y-3">
         {/* Price Breakdown */}
-        <div className="space-y-2">
-          <div className="flex justify-between text-sm">
-            <span className="text-muted-foreground">Frame</span>
+        <div className="space-y-1.5 text-xs sm:text-sm">
+          <div className="flex justify-between text-muted-foreground">
+            <span>Frame</span>
             <span className="font-medium">${priceBreakdown.framePrice.toFixed(2)}</span>
           </div>
-          <div className="flex justify-between text-sm">
-            <span className="text-muted-foreground">Base Lenses</span>
+          <div className="flex justify-between text-muted-foreground">
+            <span>Base Lenses</span>
             <span className="font-medium">${priceBreakdown.lensBasePrice.toFixed(2)}</span>
           </div>
           {priceBreakdown.lensAdditionalPrice > 0 && (
-            <div className="flex justify-between text-sm">
-              <span className="text-muted-foreground">Lens Upgrade</span>
-              <span className="font-medium text-accent">+${priceBreakdown.lensAdditionalPrice.toFixed(2)}</span>
+            <div className="flex justify-between text-muted-foreground">
+              <span>Lens Upgrade</span>
+              <span className="font-medium">+${priceBreakdown.lensAdditionalPrice.toFixed(2)}</span>
             </div>
           )}
-          <div className="h-px bg-border my-2" />
-          <div className="flex justify-between items-center">
-            <span className="text-base font-semibold text-foreground uppercase">
-              Frame + Lenses Price
-            </span>
-            <span className="text-2xl font-bold text-accent">
-              ${priceBreakdown.totalPrice.toFixed(2)}
-            </span>
+          <div className="flex justify-between text-base sm:text-lg font-bold pt-2 border-t border-border">
+            <span>Total</span>
+            <span>${priceBreakdown.totalPrice.toFixed(2)}</span>
           </div>
         </div>
 
-        {/* Confirm Button */}
+        {/* Confirm Button - Ray-Ban Orange/Red */}
         <Button
           onClick={onConfirm}
           disabled={disabled}
-          size="lg"
-          className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold text-base h-14"
+          className="w-full h-11 sm:h-12 bg-[#E94E1B] hover:bg-[#D14419] text-white font-bold text-sm sm:text-base uppercase tracking-wide shadow-md disabled:opacity-50 disabled:cursor-not-allowed transition-all"
         >
-          CONFIRM AND ADD TO BAG
+          Confirm and Add to Bag
         </Button>
       </div>
     </div>

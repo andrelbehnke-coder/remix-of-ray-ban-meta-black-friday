@@ -1,70 +1,85 @@
+import rayBanLogo from "@/assets/ray-ban-logo.png";
 import { Shield, Lock, CreditCard } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-primary text-primary-foreground py-12">
+    <footer className="bg-gradient-to-b from-primary to-primary/95 text-primary-foreground py-8 sm:py-12">
       <div className="container mx-auto px-4">
-        {/* Trust Badges */}
-        <div className="flex flex-wrap justify-center gap-8 mb-8 pb-8 border-b border-primary-foreground/20">
+        
+        {/* Logo */}
+        <div className="flex justify-center mb-6 sm:mb-8 pb-6 sm:pb-8 border-b border-primary-foreground/20">
+          <img 
+            src={rayBanLogo} 
+            alt="Ray-Ban" 
+            className="h-8 sm:h-10 md:h-12 w-auto brightness-0 invert"
+          />
+        </div>
+
+        {/* Trust Badges - Vertical no mobile */}
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-8 mb-6 sm:mb-8 pb-6 sm:pb-8 border-b border-primary-foreground/20">
           <div className="flex items-center gap-2">
-            <Shield className="w-5 h-5" />
-            <span className="text-sm font-medium">Authorized Dealer</span>
+            <Shield className="w-4 h-4 sm:w-5 sm:h-5" />
+            <span className="text-xs sm:text-sm font-medium">Authorized Dealer</span>
           </div>
           <div className="flex items-center gap-2">
-            <Lock className="w-5 h-5" />
-            <span className="text-sm font-medium">Secure Checkout</span>
+            <Lock className="w-4 h-4 sm:w-5 sm:h-5" />
+            <span className="text-xs sm:text-sm font-medium">Secure Checkout</span>
           </div>
           <div className="flex items-center gap-2">
-            <CreditCard className="w-5 h-5" />
-            <span className="text-sm font-medium">All Cards Accepted</span>
+            <CreditCard className="w-4 h-4 sm:w-5 sm:h-5" />
+            <span className="text-xs sm:text-sm font-medium">All Cards Accepted</span>
           </div>
         </div>
 
-        {/* Links */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8 text-center sm:text-left">
+        {/* Links - 2 colunas no mobile */}
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-6 sm:mb-8">
           <div>
-            <h3 className="font-bold mb-4 text-sm sm:text-base">Customer Service</h3>
-            <ul className="space-y-2 text-xs sm:text-sm text-primary-foreground/80">
+            <h3 className="font-bold mb-3 text-xs sm:text-sm md:text-base">Customer Service</h3>
+            <ul className="space-y-1.5 sm:space-y-2 text-[10px] sm:text-xs md:text-sm text-primary-foreground/80">
               <li><a href="#" className="hover:text-accent transition-colors">Contact Us</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Shipping Info</a></li>
+              <li><a href="#" className="hover:text-accent transition-colors">Shipping</a></li>
               <li><a href="#" className="hover:text-accent transition-colors">Returns</a></li>
               <li><a href="#" className="hover:text-accent transition-colors">Track Order</a></li>
             </ul>
           </div>
+
           <div>
-            <h3 className="font-bold mb-4 text-sm sm:text-base">Product Info</h3>
-            <ul className="space-y-2 text-xs sm:text-sm text-primary-foreground/80">
+            <h3 className="font-bold mb-3 text-xs sm:text-sm md:text-base">Product Info</h3>
+            <ul className="space-y-1.5 sm:space-y-2 text-[10px] sm:text-xs md:text-sm text-primary-foreground/80">
+              <li><a href="#" className="hover:text-accent transition-colors">Features</a></li>
               <li><a href="#" className="hover:text-accent transition-colors">Specifications</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">User Manual</a></li>
+              <li><a href="#" className="hover:text-accent transition-colors">User Guide</a></li>
               <li><a href="#" className="hover:text-accent transition-colors">Warranty</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Support</a></li>
             </ul>
           </div>
+
           <div>
-            <h3 className="font-bold mb-4 text-sm sm:text-base">Company</h3>
-            <ul className="space-y-2 text-xs sm:text-sm text-primary-foreground/80">
+            <h3 className="font-bold mb-3 text-xs sm:text-sm md:text-base">Company</h3>
+            <ul className="space-y-1.5 sm:space-y-2 text-[10px] sm:text-xs md:text-sm text-primary-foreground/80">
               <li><a href="#" className="hover:text-accent transition-colors">About Us</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Press</a></li>
               <li><a href="#" className="hover:text-accent transition-colors">Careers</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Affiliates</a></li>
+              <li><a href="#" className="hover:text-accent transition-colors">Press</a></li>
+              <li><a href="#" className="hover:text-accent transition-colors">Partners</a></li>
             </ul>
           </div>
+
           <div>
-            <h3 className="font-bold mb-4 text-sm sm:text-base">Legal</h3>
-            <ul className="space-y-2 text-xs sm:text-sm text-primary-foreground/80">
+            <h3 className="font-bold mb-3 text-xs sm:text-sm md:text-base">Legal</h3>
+            <ul className="space-y-1.5 sm:space-y-2 text-[10px] sm:text-xs md:text-sm text-primary-foreground/80">
               <li><a href="#" className="hover:text-accent transition-colors">Privacy Policy</a></li>
               <li><a href="#" className="hover:text-accent transition-colors">Terms of Service</a></li>
               <li><a href="#" className="hover:text-accent transition-colors">Cookie Policy</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">GDPR</a></li>
+              <li><a href="#" className="hover:text-accent transition-colors">Accessibility</a></li>
             </ul>
           </div>
         </div>
 
         {/* Copyright */}
-        <div className="text-center text-sm text-primary-foreground/60 pt-8 border-t border-primary-foreground/20">
-          <p>© 2024 Ray-Ban Meta. All rights reserved. Ray-Ban and Meta are registered trademarks.</p>
-          <p className="mt-2">This is a promotional landing page. Prices and availability subject to change.</p>
+        <div className="text-center text-[10px] sm:text-xs md:text-sm text-primary-foreground/60 pt-4 sm:pt-6 border-t border-primary-foreground/20 space-y-1">
+          <p>© 2024 Ray-Ban Meta. All rights reserved.</p>
+          <p className="text-primary-foreground/40">Ray-Ban and Meta are registered trademarks.</p>
         </div>
+        
       </div>
     </footer>
   );
