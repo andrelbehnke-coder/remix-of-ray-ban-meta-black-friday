@@ -49,7 +49,7 @@ const HeroSection = () => {
 
 
         {/* Floating Header */}
-        <header className="absolute top-0 left-0 right-0 z-50 pt-4 pt-safe px-4 sm:px-6">
+        <header className="absolute top-0 left-0 right-0 z-50 pt-8 sm:pt-12 pt-safe px-4 sm:px-6">
           <div className="flex items-center justify-end">
             <Button
               onClick={() => setIsCustomizing(true)}
