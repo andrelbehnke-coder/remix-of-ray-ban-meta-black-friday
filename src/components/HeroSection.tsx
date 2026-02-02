@@ -61,7 +61,7 @@ const HeroSection = () => {
         </header>
 
         {/* Main Content */}
-        <div className="relative z-10 flex flex-col items-center justify-start h-full px-4 pt-24 sm:pt-32 pb-20 sm:pb-0 sm:min-h-screen">
+        <div className="relative flex flex-col items-center justify-start h-full px-4 pt-24 sm:pt-32 pb-20 sm:pb-0 sm:min-h-screen pointer-events-none [&>*]:pointer-events-auto">
           {/* Logos */}
           <div className="flex items-center gap-2 sm:gap-4 mb-4 sm:mb-8">
             <span className="blend-text text-base sm:text-xl md:text-2xl font-bold opacity-0 animate-[heroSlideUp_1s_ease-out_0.3s_both]">
@@ -82,7 +82,7 @@ const HeroSection = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="absolute bottom-4 sm:bottom-12 left-0 right-0 z-10 flex flex-col items-center gap-2 sm:gap-3 px-4 pb-safe">
+        <div className="absolute bottom-4 sm:bottom-12 left-0 right-0 flex flex-col items-center gap-2 sm:gap-3 px-4 pb-safe">
           <button 
             onClick={handleScrollToDiscover}
             className="blend-text text-[10px] sm:text-sm font-semibold tracking-wider uppercase hover:opacity-80 transition-opacity animate-[heroBounce_2s_ease-in-out_infinite] opacity-0 animate-[heroSlideUp_1.4s_ease-out_0.7s_both]"
