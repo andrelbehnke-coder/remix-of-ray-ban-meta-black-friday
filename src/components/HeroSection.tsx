@@ -61,23 +61,23 @@ const HeroSection = () => {
         </header>
 
         {/* Main Content */}
-        <div className="relative flex flex-col items-center justify-start h-full px-4 pt-24 sm:pt-32 pb-20 sm:pb-0 sm:min-h-screen pointer-events-none [&>*]:pointer-events-auto">
+        <div className="absolute top-0 left-0 right-0 pt-24 sm:pt-32 flex flex-col items-center px-4">
           {/* Logos */}
           <div className="flex items-center gap-2 sm:gap-4 mb-4 sm:mb-8">
-            <span className="blend-text text-base sm:text-xl md:text-2xl font-bold opacity-0 animate-[heroSlideUp_1s_ease-out_0.3s_both]">
+            <span className="blend-text text-base sm:text-xl md:text-2xl font-bold opacity-0 animate-[heroSlideUp_1s_ease-out_0.3s_forwards]">
               Ray-Ban
             </span>
-            <span className="blend-text text-base sm:text-xl md:text-2xl opacity-0 animate-[heroSlideUp_1s_ease-out_0.3s_both]">
+            <span className="blend-text text-base sm:text-xl md:text-2xl opacity-0 animate-[heroSlideUp_1s_ease-out_0.3s_forwards]">
               |
             </span>
-            <span className="blend-text text-base sm:text-xl md:text-2xl font-medium opacity-0 animate-[heroSlideUp_1s_ease-out_0.3s_both]">
+            <span className="blend-text text-base sm:text-xl md:text-2xl font-medium opacity-0 animate-[heroSlideUp_1s_ease-out_0.3s_forwards]">
               ∞ Meta
             </span>
           </div>
 
           {/* Main Title */}
-          <h1 className="blend-text text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-center leading-tight tracking-tight max-w-4xl opacity-0 animate-[heroSlideUp_1.2s_ease-out_0.5s_both]">
-            MEET THE <span className="blend-text">NEW</span> AI GLASSES
+          <h1 className="blend-text text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-center leading-tight tracking-tight max-w-4xl opacity-0 animate-[heroSlideUp_1.2s_ease-out_0.5s_forwards]">
+            MEET THE NEW AI GLASSES
           </h1>
         </div>
 
