@@ -5,6 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  base: "/remix-of-ray-ban-meta-black-friday/",
   server: {
     host: "::",
     port: 8080,
