@@ -1,4 +1,4 @@
-import rayBanLogo from "@/assets/ray-ban-logo.png";
+import rayBanLogo from "@/assets/rayban-logo-red.png";
 import { Shield, Lock, CreditCard } from "lucide-react";
 
 const Footer = () => {
@@ -11,7 +11,7 @@ const Footer = () => {
           <img 
             src={rayBanLogo} 
             alt="Ray-Ban" 
-            className="h-8 sm:h-10 md:h-12 w-auto brightness-0 invert"
+            className="h-10 sm:h-12 md:h-14 w-auto"
           />
         </div>
 
