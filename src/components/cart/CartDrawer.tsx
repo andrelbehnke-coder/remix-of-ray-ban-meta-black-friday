@@ -87,8 +87,11 @@ const CartDrawer = ({ open, onOpenChange }: CartDrawerProps) => {
                 <Button
                   size="lg"
                   className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+                  asChild
                 >
-                  Proceed to Checkout
+                  <a href="https://soundsonichub.com/cart/51230318002466:1" target="_blank" rel="noopener noreferrer">
+                    Proceed to Checkout
+                  </a>
                 </Button>
                 <Button
                   variant="outline"
