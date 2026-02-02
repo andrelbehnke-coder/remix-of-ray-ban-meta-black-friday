@@ -24,11 +24,11 @@ const PriceSummary = ({ priceBreakdown, onConfirm, disabled }: PriceSummaryProps
           </div>
         </div>
 
-        {/* Confirm Button - Ray-Ban Orange/Red */}
+        {/* Confirm Button - Black */}
         <Button
           onClick={onConfirm}
           disabled={disabled}
-          className="w-full h-11 sm:h-12 bg-[#E94E1B] hover:bg-[#D14419] text-white font-bold text-sm sm:text-base uppercase tracking-wide shadow-md disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+          className="w-full h-11 sm:h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-sm sm:text-base uppercase tracking-wide shadow-md disabled:opacity-50 disabled:cursor-not-allowed transition-all"
         >
           Confirm and Add to Bag
         </Button>

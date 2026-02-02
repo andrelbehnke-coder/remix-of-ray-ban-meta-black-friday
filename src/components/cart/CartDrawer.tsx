@@ -86,7 +86,7 @@ const CartDrawer = ({ open, onOpenChange }: CartDrawerProps) => {
               <div className="space-y-2">
                 <Button
                   size="lg"
-                  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
                 >
                   Proceed to Checkout
                 </Button>
