@@ -70,32 +70,32 @@ const HeroSection = () => {
           MEET THE NEW AI GLASSES
         </h1>
 
-        {/* Bottom CTA */}
-        <div className="absolute bottom-4 sm:bottom-12 left-0 right-0 flex flex-col items-center gap-2 sm:gap-3 px-4 pb-safe">
-          <button 
-            onClick={handleScrollToDiscover}
-            className="blend-text text-[10px] sm:text-sm font-semibold tracking-wider uppercase hover:opacity-80 transition-opacity"
-            aria-label="Rolar para descobrir mais"
-          >
-            SCROLL TO DISCOVER
-          </button>
-          
-          <button 
-            onClick={togglePlayPause}
-            className="blend-text rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center hover:scale-110 transition-all border-2 border-white"
-            aria-label={isPlaying ? "Pausar vídeo" : "Reproduzir vídeo"}
-          >
-            {isPlaying ? (
-              <Pause className="blend-text w-4 h-4 sm:w-5 sm:h-5" />
-            ) : (
-              <Play className="blend-text w-4 h-4 sm:w-5 sm:h-5 ml-0.5" />
-            )}
-          </button>
-          
-          <p className="blend-text text-[10px] sm:text-xs text-center max-w-xs sm:max-w-md leading-relaxed opacity-70">
-            Get assistance from a sighted volunteer with Be My Eyes®.
-          </p>
-        </div>
+        {/* SCROLL TO DISCOVER - Posicionado diretamente na section */}
+        <button 
+          onClick={handleScrollToDiscover}
+          className="absolute bottom-28 sm:bottom-32 left-0 right-0 text-center blend-text text-[10px] sm:text-sm font-semibold tracking-wider uppercase hover:opacity-80 transition-opacity"
+          aria-label="Rolar para descobrir mais"
+        >
+          SCROLL TO DISCOVER
+        </button>
+        
+        {/* Play/Pause Button - Posicionado diretamente na section */}
+        <button 
+          onClick={togglePlayPause}
+          className="absolute bottom-16 sm:bottom-20 left-1/2 -translate-x-1/2 blend-text rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center hover:scale-110 transition-all border-2 border-white"
+          aria-label={isPlaying ? "Pausar vídeo" : "Reproduzir vídeo"}
+        >
+          {isPlaying ? (
+            <Pause className="w-4 h-4 sm:w-5 sm:h-5" />
+          ) : (
+            <Play className="w-4 h-4 sm:w-5 sm:h-5 ml-0.5" />
+          )}
+        </button>
+        
+        {/* Bottom text - Posicionado diretamente na section */}
+        <p className="absolute bottom-4 sm:bottom-8 left-0 right-0 text-center blend-text text-[10px] sm:text-xs max-w-xs sm:max-w-md mx-auto leading-relaxed opacity-70 px-4 pb-safe">
+          Get assistance from a sighted volunteer with Be My Eyes®.
+        </p>
       </section>
 
       {/* Customization Drawer */}
