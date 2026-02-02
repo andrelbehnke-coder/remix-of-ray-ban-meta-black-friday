@@ -22,6 +22,7 @@ const WhatsInTheBox = () => {
             alt="Ray-Ban Meta Wayfarer Package Contents"
             className="w-full h-full object-cover"
             loading="lazy"
+            decoding="async"
           />
         </div>
         

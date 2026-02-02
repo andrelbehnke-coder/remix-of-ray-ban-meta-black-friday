@@ -76,7 +76,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="text-center text-[10px] sm:text-xs md:text-sm text-primary-foreground/60 pt-4 sm:pt-6 border-t border-primary-foreground/20 space-y-1">
-          <p>© 2024 Ray-Ban Meta. All rights reserved.</p>
+          <p>© 2026 Ray-Ban Meta. All rights reserved.</p>
           <p className="text-primary-foreground/40">Ray-Ban and Meta are registered trademarks.</p>
         </div>
         
