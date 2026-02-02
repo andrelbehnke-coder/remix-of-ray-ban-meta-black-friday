@@ -1,107 +1,150 @@
 
 
-## Plano: Corrigir Bug do Blend Text no Mobile
+## Plano: Corrigir Blend Text no Safari iOS
 
-### **Diagnóstico Confirmado**
+### **Diagnóstico do Problema**
 
-O `mix-blend-mode: difference` não está funcionando corretamente nos textos "Ray-Ban | Meta" e "MEET THE NEW AI GLASSES" no mobile porque:
+O Safari iOS tem um bug conhecido onde `mix-blend-mode` não funciona corretamente quando:
+1. Há containers intermediários entre o elemento com blend e o fundo
+2. O container pai tem `position: relative` ou cria um stacking context
+3. A animação CSS com `transform` interfere no blend mode
 
-1. A propriedade `isolation: 'isolate'` na section cria um contexto de empilhamento separado
-2. O div de Main Content não tem z-index adequado
-3. A ordem de pintura no mobile afeta como o mix-blend-mode interage com o vídeo de fundo
+**Por que o texto inferior funciona?**
+- O `<p>` com "Get assistance..." está em um container `absolute` diretamente na section
+- Os textos superiores estão dentro de um container `relative` com `pointer-events-none`
 
 ---
 
-### **Solução Proposta**
+### **Solução: Reestruturar o Layout**
 
 **Arquivo:** `src/components/HeroSection.tsx`
 
-#### Mudança 1: Remover `isolation: isolate` e ajustar z-index
+#### Abordagem: Mover textos para containers absolutos independentes
+
+Em vez de ter os textos dentro de divs relativos, vamos posicioná-los absolutamente diretamente na section, assim como o texto inferior que funciona:
 
 ```tsx
-// ANTES (linha 36):
-<section className="relative min-h-0 sm:min-h-screen aspect-[9/16] sm:aspect-auto overflow-hidden bg-[#E8E4DD]" style={{ isolation: 'isolate' }}>
+{/* Main Content - Posicionamento absoluto direto */}
+<div className="absolute top-0 left-0 right-0 pt-24 sm:pt-32 flex flex-col items-center px-4">
+  {/* Logos */}
+  <div className="flex items-center gap-2 sm:gap-4 mb-4 sm:mb-8">
+    <span className="blend-text text-base sm:text-xl md:text-2xl font-bold opacity-0 animate-[heroSlideUp_1s_ease-out_0.3s_forwards]">
+      Ray-Ban
+    </span>
+    <span className="blend-text text-base sm:text-xl md:text-2xl opacity-0 animate-[heroSlideUp_1s_ease-out_0.3s_forwards]">
+      |
+    </span>
+    <span className="blend-text text-base sm:text-xl md:text-2xl font-medium opacity-0 animate-[heroSlideUp_1s_ease-out_0.3s_forwards]">
+      ∞ Meta
+    </span>
+  </div>
 
-// DEPOIS:
-<section className="relative min-h-0 sm:min-h-screen aspect-[9/16] sm:aspect-auto overflow-hidden bg-[#E8E4DD]">
-```
-
-#### Mudança 2: Adicionar z-index ao vídeo de fundo
-
-```tsx
-// ANTES (linha 45):
-className="absolute inset-0 w-full h-full object-cover"
-
-// DEPOIS:
-className="absolute inset-0 w-full h-full object-cover z-0"
-```
-
-#### Mudança 3: Ajustar z-index do Main Content
-
-```tsx
-// ANTES (linha 64):
-<div className="relative flex flex-col items-center justify-start h-full px-4 pt-24 sm:pt-32 pb-20 sm:pb-0 sm:min-h-screen">
-
-// DEPOIS:
-<div className="relative z-10 flex flex-col items-center justify-start h-full px-4 pt-24 sm:pt-32 pb-20 sm:pb-0 sm:min-h-screen">
-```
-
-#### Mudança 4: Ajustar z-index do Bottom CTA
-
-```tsx
-// ANTES (linha 85):
-<div className="absolute bottom-4 sm:bottom-12 left-0 right-0 flex flex-col items-center gap-2 sm:gap-3 px-4 pb-safe">
-
-// DEPOIS:
-<div className="absolute bottom-4 sm:bottom-12 left-0 right-0 z-10 flex flex-col items-center gap-2 sm:gap-3 px-4 pb-safe">
+  {/* Main Title */}
+  <h1 className="blend-text text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-center leading-tight tracking-tight max-w-4xl opacity-0 animate-[heroSlideUp_1.2s_ease-out_0.5s_forwards]">
+    MEET THE NEW AI GLASSES
+  </h1>
+</div>
 ```
 
 ---
 
-### **Mudança no CSS (Opcional - Se necessário)**
+### **Mudanças Detalhadas**
+
+#### 1. Alterar CSS do blend-text (remover transform)
 
 **Arquivo:** `src/index.css`
-
-Adicionar suporte melhorado para mobile:
 
 ```css
 @layer utilities {
   .blend-text {
     mix-blend-mode: difference;
     color: white;
-    filter: contrast(1.3) brightness(1.1);
-    transform: translateZ(0);
-    will-change: mix-blend-mode;
     -webkit-font-smoothing: antialiased;
-    backface-visibility: hidden;
+  }
+  
+  /* Fallback para navegadores sem suporte */
+  @supports not (mix-blend-mode: difference) {
+    .blend-text {
+      color: white;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
   }
 }
 ```
 
+**Remover:** `filter`, `transform: translateZ(0)`, `will-change`, `backface-visibility`
+
+Esses properties criam novos stacking contexts que quebram o blend no iOS.
+
 ---
 
-### **Hierarquia de Z-Index Final**
+#### 2. Reestruturar o HeroSection
+
+**Arquivo:** `src/components/HeroSection.tsx`
+
+**Mudança principal:** Converter o Main Content de `relative` para `absolute`:
+
+```tsx
+{/* Antes - linha 64 */}
+<div className="relative flex flex-col items-center justify-start h-full px-4 pt-24 sm:pt-32 pb-20 sm:pb-0 sm:min-h-screen pointer-events-none [&>*]:pointer-events-auto">
+
+{/* Depois */}
+<div className="absolute top-0 left-0 right-0 pt-24 sm:pt-32 flex flex-col items-center px-4">
+```
+
+**Remover span duplicado no h1:**
+```tsx
+{/* Antes - linha 79 */}
+<h1 className="blend-text ...">
+  MEET THE <span className="blend-text">NEW</span> AI GLASSES
+</h1>
+
+{/* Depois - remover span interno */}
+<h1 className="blend-text ...">
+  MEET THE NEW AI GLASSES
+</h1>
+```
+
+**Ajustar animações para usar `forwards` ao invés de `both`:**
+```tsx
+{/* both pode causar conflitos com blend no iOS */}
+animate-[heroSlideUp_1s_ease-out_0.3s_forwards]
+```
+
+---
+
+### **Estrutura Final**
 
 ```
 ┌─────────────────────────────────────────────┐
-│  z-50  Header (BUY NOW button)              │
-├─────────────────────────────────────────────┤
-│  z-10  Main Content (Ray-Ban | Meta, Title) │
-├─────────────────────────────────────────────┤
-│  z-10  Bottom CTA (SCROLL TO DISCOVER)      │
-├─────────────────────────────────────────────┤
-│  z-0   Video Background                     │
+│  <section className="relative">             │
+│                                             │
+│    <video className="absolute z-0">         │ ← Vídeo de fundo
+│                                             │
+│    <header className="absolute z-50">       │ ← BUY NOW button
+│                                             │
+│    <div className="absolute top-0">         │ ← Textos superiores
+│      Ray-Ban | Meta                         │   (POSIÇÃO ABSOLUTA)
+│      MEET THE NEW AI GLASSES                │
+│    </div>                                   │
+│                                             │
+│    <div className="absolute bottom-4">      │ ← Textos inferiores
+│      SCROLL TO DISCOVER                     │   (já funciona)
+│      [Play/Pause]                           │
+│      Get assistance...                      │
+│    </div>                                   │
+│                                             │
 └─────────────────────────────────────────────┘
 ```
 
 ---
 
-### **Por que isso resolve?**
+### **Por que isso resolve no iOS?**
 
-1. **Remover `isolation: isolate`**: Permite que o mix-blend-mode interaja com elementos fora do contexto isolado
-2. **Z-index explícitos**: Garante ordem de pintura consistente entre desktop e mobile
-3. **Z-10 para textos**: Coloca os textos acima do vídeo (z-0) mas permite o blend funcionar
-4. **transform: translateZ(0)**: Força aceleração de GPU para renderização consistente
+1. **Sem containers intermediários**: Os textos estão diretamente posicionados na section
+2. **Sem transform**: Remove propriedades que criam stacking contexts
+3. **Sem relative aninhado**: Evita novos contextos de empilhamento
+4. **Consistência**: Mesma estrutura do texto inferior que já funciona
 
 ---
 
@@ -109,19 +152,20 @@ Adicionar suporte melhorado para mobile:
 
 | Arquivo | Linha | Ação |
 |---------|-------|------|
-| `HeroSection.tsx` | 36 | Remover `style={{ isolation: 'isolate' }}` |
-| `HeroSection.tsx` | 45 | Adicionar `z-0` ao vídeo |
-| `HeroSection.tsx` | 64 | Adicionar `z-10` ao Main Content div |
-| `HeroSection.tsx` | 85 | Adicionar `z-10` ao Bottom CTA div |
-| `index.css` | 132-138 | (Opcional) Melhorar propriedades do blend-text |
+| `index.css` | 132-140 | Simplificar `.blend-text` removendo transform/filter |
+| `HeroSection.tsx` | 64 | Mudar container de `relative` para `absolute top-0` |
+| `HeroSection.tsx` | 64 | Remover `pointer-events-none [&>*]:pointer-events-auto` |
+| `HeroSection.tsx` | 67-75 | Trocar `both` por `forwards` nas animações |
+| `HeroSection.tsx` | 79-80 | Remover `<span>` duplicado dentro do h1 |
 
 ---
 
 ### **Resultado Esperado**
 
-Após as mudanças, todos os textos com classe `blend-text` terão comportamento consistente em mobile e desktop:
-- "Ray-Ban | Meta" - Blend funcionando
-- "MEET THE NEW AI GLASSES" - Blend funcionando
-- "SCROLL TO DISCOVER" - Continua funcionando
-- Botão play/pause - Blend funcionando
+Após as mudanças, no iPhone:
+- ✅ "Ray-Ban | Meta" - Blend funcionando
+- ✅ "MEET THE NEW AI GLASSES" - Blend funcionando  
+- ✅ "SCROLL TO DISCOVER" - Continua funcionando
+- ✅ Botão play/pause - Blend funcionando
+- ✅ "Get assistance..." - Continua funcionando
 
