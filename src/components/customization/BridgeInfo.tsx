@@ -14,7 +14,7 @@ const BridgeInfo = ({ bridgeType }: BridgeInfoProps) => {
     <div className="space-y-2">
       <div className="flex items-center gap-2">
         <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wide">
-          Bridge and Nosepads
+          Steg und Nasenpads
         </h3>
         <HoverCard>
           <HoverCardTrigger asChild>
@@ -24,10 +24,10 @@ const BridgeInfo = ({ bridgeType }: BridgeInfoProps) => {
           </HoverCardTrigger>
           <HoverCardContent className="w-80 text-sm">
             <div className="space-y-2">
-              <p className="font-semibold">High Bridge Fit</p>
+              <p className="font-semibold">Hohe Stegpassform</p>
               <p className="text-muted-foreground text-xs">
-                Designed for those with a higher nose bridge. The frame rests higher on the face, 
-                providing a more comfortable fit and preventing the frames from sliding down.
+                Entwickelt für Personen mit einem höheren Nasenrücken. Die Fassung sitzt höher im Gesicht, 
+                bietet einen komfortableren Sitz und verhindert das Herunterrutschen der Brille.
               </p>
             </div>
           </HoverCardContent>

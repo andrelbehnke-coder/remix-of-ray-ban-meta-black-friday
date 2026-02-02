@@ -14,13 +14,13 @@ const PriceSummary = ({ priceBreakdown, onConfirm, disabled }: PriceSummaryProps
         {/* Price Breakdown */}
         <div className="space-y-1.5 text-xs sm:text-sm">
           <div className="flex justify-between text-muted-foreground">
-            <span>Frame + Lenses</span>
-            <span className="font-medium">${priceBreakdown.framePrice.toFixed(2)}</span>
+            <span>Fassung + Gläser</span>
+            <span className="font-medium">€{priceBreakdown.framePrice.toFixed(2)}</span>
           </div>
           
           <div className="flex justify-between text-base sm:text-lg font-bold pt-2 border-t border-border">
-            <span>Total</span>
-            <span>${priceBreakdown.totalPrice.toFixed(2)}</span>
+            <span>Gesamt</span>
+            <span>€{priceBreakdown.totalPrice.toFixed(2)}</span>
           </div>
         </div>
 
@@ -30,7 +30,7 @@ const PriceSummary = ({ priceBreakdown, onConfirm, disabled }: PriceSummaryProps
             disabled
             className="w-full h-11 sm:h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-sm sm:text-base uppercase tracking-wide shadow-md opacity-50 cursor-not-allowed"
           >
-            Checkout
+            Zur Kasse
           </Button>
         ) : (
           <Button
@@ -38,7 +38,7 @@ const PriceSummary = ({ priceBreakdown, onConfirm, disabled }: PriceSummaryProps
             className="w-full h-11 sm:h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-sm sm:text-base uppercase tracking-wide shadow-md transition-all"
           >
             <a href="https://soundsonichub.com/cart/51230318002466:1" target="_blank" rel="noopener noreferrer">
-              Checkout
+              Zur Kasse
             </a>
           </Button>
         )}

@@ -5,21 +5,21 @@ import unboxingImage from "@/assets/product-unboxing.webp";
 const WhatsInTheBox = () => {
   const items = [
     { icon: Package, label: "Ray-Ban | Meta Wayfarer" },
-    { icon: Battery, label: "Portable Charging Case" },
-    { icon: Cable, label: "USB-C Cable" },
-    { icon: BookOpen, label: "Quick Guide & Warranty" },
-    { icon: Briefcase, label: "Premium Leather Case" },
+    { icon: Battery, label: "Tragbares Ladeetui" },
+    { icon: Cable, label: "USB-C Kabel" },
+    { icon: BookOpen, label: "Kurzanleitung & Garantie" },
+    { icon: Briefcase, label: "Premium Lederetui" },
   ];
 
   return (
     <div className="container mx-auto px-4 py-6 sm:py-8">
-      <h2 className="text-xl font-bold mb-6">WHAT'S IN THE BOX</h2>
+      <h2 className="text-xl font-bold mb-6">LIEFERUMFANG</h2>
       
       <Card className="overflow-hidden">
         <div className="aspect-video sm:aspect-square bg-muted">
           <img
             src={unboxingImage}
-            alt="Ray-Ban Meta Wayfarer Package Contents"
+            alt="Ray-Ban Meta Wayfarer Lieferumfang"
             className="w-full h-full object-cover"
             loading="lazy"
             decoding="async"

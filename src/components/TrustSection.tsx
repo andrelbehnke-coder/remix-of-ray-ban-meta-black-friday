@@ -3,10 +3,10 @@ import { Card } from "@/components/ui/card";
 
 const TrustSection = () => {
   const stats = [
-    { icon: Users, value: "50,000+", label: "Happy Customers" },
-    { icon: Star, value: "4.8/5", label: "Average Rating" },
-    { icon: Award, value: "15+", label: "Industry Awards" },
-    { icon: Shield, value: "2-Year", label: "Warranty" },
+    { icon: Users, value: "50.000+", label: "Zufriedene Kunden" },
+    { icon: Star, value: "4,8/5", label: "Durchschnittliche Bewertung" },
+    { icon: Award, value: "15+", label: "Branchenauszeichnungen" },
+    { icon: Shield, value: "2 Jahre", label: "Garantie" },
   ];
 
   const publications = [
@@ -19,10 +19,10 @@ const TrustSection = () => {
   ];
 
   const badges = [
-    { icon: Lock, text: "SSL Secure Checkout" },
-    { icon: Shield, text: "Money-Back Guarantee" },
-    { icon: Truck, text: "Free Worldwide Shipping" },
-    { icon: Award, text: "Authorized Retailer" },
+    { icon: Lock, text: "SSL-gesicherter Checkout" },
+    { icon: Shield, text: "Geld-zurück-Garantie" },
+    { icon: Truck, text: "Kostenloser Versand weltweit" },
+    { icon: Award, text: "Autorisierter Händler" },
   ];
 
   return (
@@ -45,7 +45,7 @@ const TrustSection = () => {
         {/* Featured In */}
         <div className="mb-16">
           <h3 className="text-center text-lg font-semibold text-muted-foreground mb-8">
-            AS FEATURED IN
+            BEKANNT AUS
           </h3>
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
             {publications.map((pub, index) => (

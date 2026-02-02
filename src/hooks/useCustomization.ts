@@ -7,7 +7,7 @@ export const useCustomization = () => {
   const [state, setState] = useState<CustomizationState>({
     selectedFrame: frameOptions.find(f => f.id === 'matte-black') || null,
     selectedLens: lensOptions.find(l => l.id === 'polar-grey') || null,
-    bridgeType: 'High Bridge Fit'
+    bridgeType: 'Hohe Stegpassform'
   });
 
   const selectFrame = (frameId: string) => {
@@ -37,7 +37,7 @@ export const useCustomization = () => {
     setState({
       selectedFrame: null,
       selectedLens: null,
-      bridgeType: 'High Bridge Fit'
+      bridgeType: 'Hohe Stegpassform'
     });
   };
 

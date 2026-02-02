@@ -23,30 +23,30 @@ const ProductInfo = () => {
         <div className="flex items-start justify-between">
           <div>
             <span className="text-xs text-muted-foreground uppercase block mb-1">
-              Bridge & Nosepads
+              Steg & Nasenpads
             </span>
-            <span className="font-medium">High Bridge Fit</span>
+            <span className="font-medium">Hohe Stegpassform</span>
           </div>
           <Info className="w-4 h-4 text-muted-foreground" />
         </div>
 
         <div className="border-t pt-3">
-          <span className="text-xs text-muted-foreground uppercase block mb-1">Frame</span>
-          <span className="font-medium">Matte Black</span>
+          <span className="text-xs text-muted-foreground uppercase block mb-1">Fassung</span>
+          <span className="font-medium">Matt Schwarz</span>
         </div>
 
         <div className="border-t pt-3">
-          <span className="text-xs text-muted-foreground uppercase block mb-1">Lenses</span>
+          <span className="text-xs text-muted-foreground uppercase block mb-1">Gläser</span>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <span className="font-medium">Graphite</span>
+              <span className="font-medium">Graphit</span>
               <Badge variant="outline" className="text-xs">
                 <Check className="w-3 h-3 mr-1" />
-                Polarized
+                Polarisiert
               </Badge>
             </div>
             <button className="text-xs font-semibold flex items-center gap-1 hover:underline">
-              TRY LENSES
+              GLÄSER TESTEN
               <ChevronRight className="w-3 h-3" />
             </button>
           </div>
@@ -59,11 +59,11 @@ const ProductInfo = () => {
         size="lg" 
         className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-4 text-sm sm:text-base"
       >
-        CHOOSE YOUR FRAME & LENS COLORS
+        WÄHLEN SIE IHRE FASSUNGS- & GLASFARBEN
       </Button>
 
       <p className="text-center text-xs text-muted-foreground">
-        Prescription available
+        Mit Sehstärke erhältlich
       </p>
 
       {/* Customization Drawer */}
@@ -77,7 +77,7 @@ const ProductInfo = () => {
       <Card className="p-4">
         <button className="w-full flex items-center justify-between group">
           <div className="text-left">
-            <span className="text-xs text-muted-foreground uppercase block mb-1">Size</span>
+            <span className="text-xs text-muted-foreground uppercase block mb-1">Größe</span>
             <span className="font-semibold">50-22</span>
           </div>
           <ChevronRight className="w-5 h-5 text-muted-foreground group-hover:translate-x-1 transition-transform" />
@@ -89,9 +89,9 @@ const ProductInfo = () => {
         <button className="w-full flex items-center justify-between group">
           <div className="text-left">
             <span className="text-xs text-muted-foreground uppercase block mb-1">
-              Bridge & Nosepads
+              Steg & Nasenpads
             </span>
-            <span className="font-semibold">HIGH BRIDGE FIT</span>
+            <span className="font-semibold">HOHE STEGPASSFORM</span>
           </div>
           <ChevronRight className="w-5 h-5 text-muted-foreground group-hover:translate-x-1 transition-transform" />
         </button>
@@ -99,30 +99,30 @@ const ProductInfo = () => {
 
       {/* Product Details */}
       <div className="pt-6 space-y-4">
-        <h2 className="text-xl font-bold">PRODUCT DETAILS</h2>
+        <h2 className="text-xl font-bold">PRODUKTDETAILS</h2>
         
         <div className="space-y-3 text-sm">
           <p className="text-muted-foreground leading-relaxed">
-            Experience the future of smart eyewear with Ray-Ban Meta Wayfarer Gen 2. 
-            Featuring advanced AI integration, ultra-wide 12MP camera, and immersive audio.
+            Erleben Sie die Zukunft der Smart-Brillen mit Ray-Ban Meta Wayfarer Gen 2. 
+            Mit fortschrittlicher KI-Integration, Ultra-Weitwinkel 12MP Kamera und immersivem Audio.
           </p>
 
           <div className="grid grid-cols-2 gap-3 pt-2">
             <div>
-              <span className="text-xs text-muted-foreground block mb-1">Camera</span>
-              <span className="font-medium">12MP Ultra-Wide</span>
+              <span className="text-xs text-muted-foreground block mb-1">Kamera</span>
+              <span className="font-medium">12MP Ultra-Weitwinkel</span>
             </div>
             <div>
-              <span className="text-xs text-muted-foreground block mb-1">Battery</span>
-              <span className="font-medium">Up to 4 hours</span>
+              <span className="text-xs text-muted-foreground block mb-1">Akku</span>
+              <span className="font-medium">Bis zu 4 Stunden</span>
             </div>
             <div>
               <span className="text-xs text-muted-foreground block mb-1">Audio</span>
-              <span className="font-medium">5-Mic System</span>
+              <span className="font-medium">5-Mikrofon-System</span>
             </div>
             <div>
-              <span className="text-xs text-muted-foreground block mb-1">AI</span>
-              <span className="font-medium">Meta AI Built-in</span>
+              <span className="text-xs text-muted-foreground block mb-1">KI</span>
+              <span className="font-medium">Meta AI integriert</span>
             </div>
           </div>
         </div>

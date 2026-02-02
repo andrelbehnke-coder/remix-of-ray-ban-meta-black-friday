@@ -17,9 +17,9 @@ const LensSelector = ({
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wide">Lens Color</h3>
+        <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wide">Glasfarbe</h3>
         <Badge variant="secondary" className="text-xs font-bold bg-green-100 text-green-700 dark:bg-green-950 dark:text-green-300">
-          FREE
+          GRATIS
         </Badge>
       </div>
 
@@ -59,7 +59,7 @@ const LensSelector = ({
                 variant="secondary" 
                 className="text-[10px] sm:text-xs font-bold bg-green-100 text-green-700 dark:bg-green-950 dark:text-green-300"
               >
-                Included
+                Inklusive
               </Badge>
             </div>
           </button>

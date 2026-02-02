@@ -19,65 +19,65 @@ const Footer = () => {
         <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-8 mb-6 sm:mb-8 pb-6 sm:pb-8 border-b border-primary-foreground/20">
           <div className="flex items-center gap-2">
             <Shield className="w-4 h-4 sm:w-5 sm:h-5" />
-            <span className="text-xs sm:text-sm font-medium">Authorized Dealer</span>
+            <span className="text-xs sm:text-sm font-medium">Autorisierter Händler</span>
           </div>
           <div className="flex items-center gap-2">
             <Lock className="w-4 h-4 sm:w-5 sm:h-5" />
-            <span className="text-xs sm:text-sm font-medium">Secure Checkout</span>
+            <span className="text-xs sm:text-sm font-medium">Sicherer Checkout</span>
           </div>
           <div className="flex items-center gap-2">
             <CreditCard className="w-4 h-4 sm:w-5 sm:h-5" />
-            <span className="text-xs sm:text-sm font-medium">All Cards Accepted</span>
+            <span className="text-xs sm:text-sm font-medium">Alle Karten akzeptiert</span>
           </div>
         </div>
 
-        {/* Links - 2 colunas no mobile */}
+        {/* Links - 2 columns on mobile */}
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-6 sm:mb-8">
           <div>
-            <h3 className="font-bold mb-3 text-xs sm:text-sm md:text-base">Customer Service</h3>
+            <h3 className="font-bold mb-3 text-xs sm:text-sm md:text-base">Kundenservice</h3>
             <ul className="space-y-1.5 sm:space-y-2 text-[10px] sm:text-xs md:text-sm text-primary-foreground/80">
-              <li><a href="#" className="hover:text-accent transition-colors">Contact Us</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Shipping</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Returns</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Track Order</a></li>
+              <li><a href="#" className="hover:text-accent transition-colors">Kontakt</a></li>
+              <li><a href="#" className="hover:text-accent transition-colors">Versand</a></li>
+              <li><a href="#" className="hover:text-accent transition-colors">Rücksendung</a></li>
+              <li><a href="#" className="hover:text-accent transition-colors">Bestellung verfolgen</a></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-bold mb-3 text-xs sm:text-sm md:text-base">Product Info</h3>
+            <h3 className="font-bold mb-3 text-xs sm:text-sm md:text-base">Produktinfo</h3>
             <ul className="space-y-1.5 sm:space-y-2 text-[10px] sm:text-xs md:text-sm text-primary-foreground/80">
-              <li><a href="#" className="hover:text-accent transition-colors">Features</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Specifications</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">User Guide</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Warranty</a></li>
+              <li><a href="#" className="hover:text-accent transition-colors">Funktionen</a></li>
+              <li><a href="#" className="hover:text-accent transition-colors">Technische Daten</a></li>
+              <li><a href="#" className="hover:text-accent transition-colors">Benutzerhandbuch</a></li>
+              <li><a href="#" className="hover:text-accent transition-colors">Garantie</a></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-bold mb-3 text-xs sm:text-sm md:text-base">Company</h3>
+            <h3 className="font-bold mb-3 text-xs sm:text-sm md:text-base">Unternehmen</h3>
             <ul className="space-y-1.5 sm:space-y-2 text-[10px] sm:text-xs md:text-sm text-primary-foreground/80">
-              <li><a href="#" className="hover:text-accent transition-colors">About Us</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Careers</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Press</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Partners</a></li>
+              <li><a href="#" className="hover:text-accent transition-colors">Über uns</a></li>
+              <li><a href="#" className="hover:text-accent transition-colors">Karriere</a></li>
+              <li><a href="#" className="hover:text-accent transition-colors">Presse</a></li>
+              <li><a href="#" className="hover:text-accent transition-colors">Partner</a></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-bold mb-3 text-xs sm:text-sm md:text-base">Legal</h3>
+            <h3 className="font-bold mb-3 text-xs sm:text-sm md:text-base">Rechtliches</h3>
             <ul className="space-y-1.5 sm:space-y-2 text-[10px] sm:text-xs md:text-sm text-primary-foreground/80">
-              <li><a href="#" className="hover:text-accent transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Terms of Service</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Cookie Policy</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Accessibility</a></li>
+              <li><a href="#" className="hover:text-accent transition-colors">Datenschutz</a></li>
+              <li><a href="#" className="hover:text-accent transition-colors">AGB</a></li>
+              <li><a href="#" className="hover:text-accent transition-colors">Cookie-Richtlinie</a></li>
+              <li><a href="#" className="hover:text-accent transition-colors">Barrierefreiheit</a></li>
             </ul>
           </div>
         </div>
 
         {/* Copyright */}
         <div className="text-center text-[10px] sm:text-xs md:text-sm text-primary-foreground/60 pt-4 sm:pt-6 border-t border-primary-foreground/20 space-y-1">
-          <p>© 2026 Ray-Ban Meta. All rights reserved.</p>
-          <p className="text-primary-foreground/40">Ray-Ban and Meta are registered trademarks.</p>
+          <p>© 2026 Ray-Ban Meta. Alle Rechte vorbehalten.</p>
+          <p className="text-primary-foreground/40">Ray-Ban und Meta sind eingetragene Marken.</p>
         </div>
         
       </div>

@@ -21,7 +21,7 @@ const BrandingSection = () => {
       {/* Right: Trust badge */}
       <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
         <Shield className="w-4 h-4" />
-        <span className="font-medium hidden sm:inline">Authentic Ray-Ban</span>
+        <span className="font-medium hidden sm:inline">Original Ray-Ban</span>
       </div>
     </div>
   );

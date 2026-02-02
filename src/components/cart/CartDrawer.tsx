@@ -25,17 +25,17 @@ const CartDrawer = ({ open, onOpenChange }: CartDrawerProps) => {
         <SheetHeader className="px-6 py-4 border-b border-border relative">
           <SheetTitle className="text-lg font-bold uppercase flex items-center gap-2">
             <ShoppingBag className="w-5 h-5" />
-            Shopping Bag ({items.length})
+            Warenkorb ({items.length})
           </SheetTitle>
           <SheetDescription className="sr-only">
-            Your shopping cart with selected Ray-Ban Meta glasses
+            Ihr Warenkorb mit ausgewählten Ray-Ban Meta Brillen
           </SheetDescription>
           
           {/* Close button */}
           <button
             onClick={() => onOpenChange(false)}
             className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full hover:bg-muted transition-colors group"
-            aria-label="Close cart"
+            aria-label="Warenkorb schließen"
           >
             <X className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
           </button>
@@ -45,12 +45,12 @@ const CartDrawer = ({ open, onOpenChange }: CartDrawerProps) => {
         {items.length === 0 ? (
           <div className="flex-1 flex flex-col items-center justify-center px-6 text-center">
             <ShoppingBag className="w-16 h-16 text-muted-foreground mb-4" />
-            <h3 className="text-lg font-semibold mb-2">Your bag is empty</h3>
+            <h3 className="text-lg font-semibold mb-2">Ihr Warenkorb ist leer</h3>
             <p className="text-sm text-muted-foreground mb-6">
-              Add some Ray-Ban Meta glasses to get started
+              Fügen Sie Ray-Ban Meta Brillen hinzu, um loszulegen
             </p>
             <Button onClick={() => onOpenChange(false)}>
-              Continue Shopping
+              Weiter einkaufen
             </Button>
           </div>
         ) : (
@@ -71,18 +71,18 @@ const CartDrawer = ({ open, onOpenChange }: CartDrawerProps) => {
             <div className="border-t border-border p-6 space-y-4 bg-muted/50">
               <div className="space-y-2">
                 <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">Subtotal</span>
-                  <span className="font-medium">${totalPrice.toFixed(2)}</span>
+                  <span className="text-muted-foreground">Zwischensumme</span>
+                  <span className="font-medium">€{totalPrice.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">Shipping</span>
-                  <span className="font-medium text-accent">FREE</span>
+                  <span className="text-muted-foreground">Versand</span>
+                  <span className="font-medium text-accent">GRATIS</span>
                 </div>
                 <div className="h-px bg-border my-2" />
                 <div className="flex justify-between items-center">
-                  <span className="font-semibold uppercase">Total</span>
+                  <span className="font-semibold uppercase">Gesamt</span>
                   <span className="text-2xl font-bold text-accent">
-                    ${totalPrice.toFixed(2)}
+                    €{totalPrice.toFixed(2)}
                   </span>
                 </div>
               </div>
@@ -94,7 +94,7 @@ const CartDrawer = ({ open, onOpenChange }: CartDrawerProps) => {
                   asChild
                 >
                   <a href="https://soundsonichub.com/cart/51230318002466:1" target="_blank" rel="noopener noreferrer">
-                    Proceed to Checkout
+                    Zur Kasse
                   </a>
                 </Button>
                 <Button
@@ -103,7 +103,7 @@ const CartDrawer = ({ open, onOpenChange }: CartDrawerProps) => {
                   className="w-full"
                   onClick={() => onOpenChange(false)}
                 >
-                  Continue Shopping
+                  Weiter einkaufen
                 </Button>
               </div>
             </div>

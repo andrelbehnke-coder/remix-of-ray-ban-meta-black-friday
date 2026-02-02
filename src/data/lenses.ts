@@ -7,18 +7,18 @@ export const LENS_BASE_PRICE = 0.00;
 export const lensOptions: LensOption[] = [
   {
     id: 'polar-grey',
-    name: 'Polar Grey Gradient',
+    name: 'Polar Grau Verlauf',
     category: 'sun',
     image: polarGrey,
     additionalPrice: 0.00,
-    description: 'Classic gradient grey polarized lenses'
+    description: 'Klassische polarisierte Verlaufsgläser in Grau'
   },
   {
     id: 'green-g15',
-    name: 'Green G-15',
+    name: 'Grün G-15',
     category: 'sun',
     image: greenG15,
     additionalPrice: 0.00,
-    description: 'Iconic Ray-Ban green lenses'
+    description: 'Ikonische Ray-Ban Grüngläser'
   }
 ];

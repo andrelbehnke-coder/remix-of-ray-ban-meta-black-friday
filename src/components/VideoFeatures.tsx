@@ -35,26 +35,26 @@ const VideoFeatures = () => {
   }, []);
   const videos = [
     {
-      title: "Hands-Free Video",
-      description: "Capture 1080p video from your perspective",
+      title: "Freihändiges Video",
+      description: "Nehmen Sie 1080p-Videos aus Ihrer Perspektive auf",
       url: "https://lookaside.fbsbx.com/elementpath/media/?media_id=4228162164108475&version=4228161677441857&vq=HD",
       icon: Camera,
     },
     {
-      title: "Meta AI Assistant",
-      description: "Ask questions and get instant answers",
+      title: "Meta KI-Assistent",
+      description: "Stellen Sie Fragen und erhalten Sie sofortige Antworten",
       url: "https://lookaside.fbsbx.com/elementpath/media/?media_id=793313366406117&version=793313213072799&vq=HD",
       icon: Brain,
     },
     {
-      title: "Immersive Audio",
-      description: "Premium directional speakers",
+      title: "Immersives Audio",
+      description: "Premium-Richtungslautsprecher",
       url: "https://lookaside.fbsbx.com/elementpath/media/?media_id=1429713411593591&version=1429713321593600&vq=HD",
       icon: Music,
     },
     {
-      title: "Live Translation",
-      description: "Break language barriers instantly",
+      title: "Live-Übersetzung",
+      description: "Überwinden Sie Sprachbarrieren sofort",
       url: "https://lookaside.fbsbx.com/elementpath/media/?media_id=1028787369151216&version=1028787179151235&vq=HD",
       icon: Languages,
     },
@@ -63,7 +63,7 @@ const VideoFeatures = () => {
   return (
     <section className="py-6 sm:py-8 bg-background">
       <div className="container mx-auto px-4">
-        <h2 className="text-xl sm:text-2xl font-bold mb-6">FEATURES</h2>
+        <h2 className="text-xl sm:text-2xl font-bold mb-6">FUNKTIONEN</h2>
         
         <div className="relative">
           <Carousel
@@ -114,7 +114,7 @@ const VideoFeatures = () => {
             <CarouselNext className="hidden md:flex" />
           </Carousel>
           
-          {/* Gradiente indicador de mais conteúdo (mobile) */}
+          {/* Gradient indicator for more content (mobile) */}
           <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-background to-transparent pointer-events-none md:hidden" />
         </div>
       </div>

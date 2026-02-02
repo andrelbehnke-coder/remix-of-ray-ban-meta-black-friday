@@ -13,8 +13,8 @@ const FrameSelector = ({ selectedFrame, onFrameChange, frameOptions, framePrice 
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wide">Frame</h3>
-        <span className="text-xs sm:text-sm font-bold">${framePrice.toFixed(2)}</span>
+        <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wide">Fassung</h3>
+        <span className="text-xs sm:text-sm font-bold">€{framePrice.toFixed(2)}</span>
       </div>
       
       <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3 sm:gap-4">
