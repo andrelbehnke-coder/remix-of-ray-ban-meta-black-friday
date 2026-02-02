@@ -43,7 +43,7 @@ const FAQMobile = () => {
             <AccordionItem
               key={index}
               value={`item-${index}`}
-              className="bg-white border rounded-lg px-4"
+              className="bg-card border rounded-lg px-4"
             >
               <AccordionTrigger className="text-left font-semibold hover:no-underline py-4">
                 {faq.question}

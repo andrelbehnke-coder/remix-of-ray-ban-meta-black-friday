@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
 import { CartItem, CustomizationState } from '@/types/customization';
 
 interface CartContextType {
@@ -23,8 +23,10 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     localStorage.setItem('cart', JSON.stringify(items));
   }, [items]);
 
-  const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
-  const totalPrice = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const { totalItems, totalPrice } = useMemo(() => ({
+    totalItems: items.reduce((sum, item) => sum + item.quantity, 0),
+    totalPrice: items.reduce((sum, item) => sum + item.price * item.quantity, 0)
+  }), [items]);
 
   const addToCart = (customization: CustomizationState, price: number) => {
     const newItem: CartItem = {

@@ -87,9 +87,11 @@ const VideoFeatures = () => {
                           muted
                           loop
                           playsInline
-                          preload="metadata"
+                          preload="none"
+                          poster=""
                         >
                           <source src={video.url} type="video/mp4" />
+                          Your browser does not support the video tag.
                         </video>
                       </div>
                       
