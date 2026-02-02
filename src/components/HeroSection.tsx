@@ -93,7 +93,7 @@ const HeroSection = () => {
         </button>
         
         {/* Bottom text - Posicionado diretamente na section */}
-        <p className="absolute bottom-4 sm:bottom-8 left-0 right-0 text-center blend-text text-[10px] sm:text-xs max-w-xs sm:max-w-md mx-auto leading-relaxed opacity-70 px-4 pb-safe">
+        <p className="absolute bottom-2 sm:bottom-4 left-0 right-0 text-center blend-text text-[10px] sm:text-xs max-w-xs sm:max-w-md mx-auto leading-relaxed opacity-70 px-4 pb-safe">
           Get assistance from a sighted volunteer with Be My Eyes®.
         </p>
       </section>
