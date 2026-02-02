@@ -1,5 +1,4 @@
 import HeroSection from "@/components/HeroSection";
-import BlackFridayHeroBanner from "@/components/BlackFridayHeroBanner";
 import ProductGalleryMobile from "@/components/ProductGalleryMobile";
 import ProductInfo from "@/components/ProductInfo";
 import VideoFeatures from "@/components/VideoFeatures";
@@ -11,7 +10,6 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <HeroSection />
-      <BlackFridayHeroBanner />
       <ProductGalleryMobile />
       <ProductInfo />
       <VideoFeatures />
