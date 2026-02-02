@@ -60,18 +60,10 @@ const HeroSection = () => {
           </div>
         </header>
 
-        {/* Main Content - Logos (filhos diretos da section para iOS) */}
-        <div className="absolute top-24 sm:top-32 left-0 right-0 flex items-center justify-center gap-2 sm:gap-4 px-4">
-          <span className="blend-text text-base sm:text-xl md:text-2xl font-bold">
-            Ray-Ban
-          </span>
-          <span className="blend-text text-base sm:text-xl md:text-2xl">
-            |
-          </span>
-          <span className="blend-text text-base sm:text-xl md:text-2xl font-medium">
-            ∞ Meta
-          </span>
-        </div>
+        {/* Logos - Elemento único posicionado diretamente na section para iOS */}
+        <p className="absolute top-24 sm:top-32 left-0 right-0 text-center blend-text text-base sm:text-xl md:text-2xl px-4">
+          <strong>Ray-Ban</strong> | ∞ Meta
+        </p>
 
         {/* Main Title - Filho direto da section para iOS */}
         <h1 className="absolute top-36 sm:top-48 left-0 right-0 blend-text text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-center leading-tight tracking-tight px-4">
