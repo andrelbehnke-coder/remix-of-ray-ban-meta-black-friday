@@ -6,18 +6,16 @@ import { Check, ChevronRight, Info } from "lucide-react";
 import colorVariant from "@/assets/colors/color-variant.webp";
 import CustomizationDrawer from "./customization/CustomizationDrawer";
 import { useCart } from "@/contexts/CartContext";
-
 const ProductInfo = () => {
   const [isCustomizing, setIsCustomizing] = useState(false);
-  const { addToCart } = useCart();
-
+  const {
+    addToCart
+  } = useCart();
   const handleAddToBag = (customization: any, price: number) => {
     addToCart(customization, price);
     setIsCustomizing(false);
   };
-
-  return (
-    <div className="container mx-auto px-4 py-6 space-y-6">
+  return <div className="container mx-auto px-4 py-6 space-y-6">
       {/* Specifications */}
       <Card className="p-4 space-y-3">
         <div className="flex items-start justify-between">
@@ -32,7 +30,7 @@ const ProductInfo = () => {
 
         <div className="border-t pt-3">
           <span className="text-xs text-muted-foreground uppercase block mb-1">Fassung</span>
-          <span className="font-medium">Matt Schwarz</span>
+          <span className="font-medium">Matt Schwarz.</span>
         </div>
 
         <div className="border-t pt-3">
@@ -54,11 +52,7 @@ const ProductInfo = () => {
       </Card>
 
       {/* CTA Button */}
-      <Button 
-        onClick={() => setIsCustomizing(true)}
-        size="lg" 
-        className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-4 text-sm sm:text-base"
-      >
+      <Button onClick={() => setIsCustomizing(true)} size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-4 text-sm sm:text-base">
         WÄHLEN SIE IHRE FASSUNGS- & GLASFARBEN
       </Button>
 
@@ -67,11 +61,7 @@ const ProductInfo = () => {
       </p>
 
       {/* Customization Drawer */}
-      <CustomizationDrawer
-        open={isCustomizing}
-        onOpenChange={setIsCustomizing}
-        onAddToBag={handleAddToBag}
-      />
+      <CustomizationDrawer open={isCustomizing} onOpenChange={setIsCustomizing} onAddToBag={handleAddToBag} />
 
       {/* Size */}
       <Card className="p-4">
@@ -127,8 +117,6 @@ const ProductInfo = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default ProductInfo;
