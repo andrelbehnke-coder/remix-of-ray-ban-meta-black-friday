@@ -5,6 +5,7 @@ import {
   SheetContent,
   SheetHeader,
   SheetTitle,
+  SheetDescription,
 } from "@/components/ui/sheet";
 import { useCustomization } from "@/hooks/useCustomization";
 import FrameSelector from "./FrameSelector";
@@ -66,6 +67,9 @@ const CustomizationDrawer = ({ open, onOpenChange, onAddToBag }: CustomizationDr
               ${priceBreakdown.totalPrice.toFixed(2)}
             </div>
           </div>
+          <SheetDescription className="sr-only">
+            Customize your Ray-Ban Meta glasses by selecting frame and lens colors
+          </SheetDescription>
         </SheetHeader>
 
 
