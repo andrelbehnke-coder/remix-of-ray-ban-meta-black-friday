@@ -90,7 +90,7 @@ const CartDrawer = ({ open, onOpenChange }: CartDrawerProps) => {
               <div className="space-y-2">
                 <Button
                   size="lg"
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+                  className="w-full bg-[#CC0000] hover:bg-[#AA0000] text-white font-semibold"
                   asChild
                 >
                   <a href="https://soundsonichub.com/cart/51230318002466:1" target="_blank" rel="noopener noreferrer">
