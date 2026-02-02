@@ -30,7 +30,7 @@ const ProductInfo = () => {
 
         <div className="border-t pt-3">
           <span className="text-xs text-muted-foreground uppercase block mb-1">Fassung</span>
-          <span className="font-medium">Matt Schwarz.</span>
+          <span className="font-medium">Matt Schwarz</span>
         </div>
 
         <div className="border-t pt-3">
