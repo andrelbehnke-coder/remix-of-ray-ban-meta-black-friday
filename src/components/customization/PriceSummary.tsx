@@ -25,15 +25,23 @@ const PriceSummary = ({ priceBreakdown, onConfirm, disabled }: PriceSummaryProps
         </div>
 
         {/* Checkout Button - Black */}
-        <Button
-          asChild
-          disabled={disabled}
-          className="w-full h-11 sm:h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-sm sm:text-base uppercase tracking-wide shadow-md disabled:opacity-50 disabled:cursor-not-allowed transition-all"
-        >
-          <a href="https://soundsonichub.com/cart/51230318002466:1" target="_blank" rel="noopener noreferrer">
+        {disabled ? (
+          <Button
+            disabled
+            className="w-full h-11 sm:h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-sm sm:text-base uppercase tracking-wide shadow-md opacity-50 cursor-not-allowed"
+          >
             Checkout
-          </a>
-        </Button>
+          </Button>
+        ) : (
+          <Button
+            asChild
+            className="w-full h-11 sm:h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-sm sm:text-base uppercase tracking-wide shadow-md transition-all"
+          >
+            <a href="https://soundsonichub.com/cart/51230318002466:1" target="_blank" rel="noopener noreferrer">
+              Checkout
+            </a>
+          </Button>
+        )}
       </div>
     </div>
   );

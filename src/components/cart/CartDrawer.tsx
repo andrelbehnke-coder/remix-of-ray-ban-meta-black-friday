@@ -4,6 +4,7 @@ import {
   SheetContent,
   SheetHeader,
   SheetTitle,
+  SheetDescription,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
@@ -26,6 +27,9 @@ const CartDrawer = ({ open, onOpenChange }: CartDrawerProps) => {
             <ShoppingBag className="w-5 h-5" />
             Shopping Bag ({items.length})
           </SheetTitle>
+          <SheetDescription className="sr-only">
+            Your shopping cart with selected Ray-Ban Meta glasses
+          </SheetDescription>
           
           {/* Close button */}
           <button
