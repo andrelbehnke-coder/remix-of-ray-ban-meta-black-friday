@@ -58,6 +58,8 @@ const ProductGalleryMobile = () => {
           alt={images[currentImage].alt}
           className="w-full h-full object-contain transition-transform duration-300"
           loading={currentImage === 0 ? "eager" : "lazy"}
+          decoding="async"
+          fetchPriority={currentImage === 0 ? "high" : "auto"}
         />
         {/* Image Counter */}
         <div className="absolute top-4 right-4 bg-black/50 text-white px-3 py-1 rounded-full text-xs font-medium">
