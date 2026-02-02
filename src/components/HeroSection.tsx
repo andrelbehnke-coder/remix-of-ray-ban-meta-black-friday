@@ -55,7 +55,7 @@ const HeroSection = () => {
               onClick={() => setIsCustomizing(true)}
               className="bg-[#CC0000] hover:bg-[#AA0000] text-white font-bold px-6 py-2.5 sm:px-8 sm:py-3 rounded-full text-sm sm:text-base transition-all hover:scale-105 shadow-lg"
             >
-              BUY NOW
+              JETZT KAUFEN
             </Button>
           </div>
         </header>
@@ -67,23 +67,23 @@ const HeroSection = () => {
 
         {/* Main Title - Filho direto da section para iOS */}
         <h1 className="absolute top-36 sm:top-48 left-0 right-0 blend-text text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-center leading-tight tracking-tight px-4">
-          MEET THE NEW AI GLASSES
+          ENTDECKEN SIE DIE NEUE KI-BRILLE
         </h1>
 
         {/* SCROLL TO DISCOVER - Posicionado diretamente na section */}
         <button 
           onClick={handleScrollToDiscover}
           className="absolute bottom-28 sm:bottom-32 left-0 right-0 text-center blend-text text-[10px] sm:text-sm font-semibold tracking-wider uppercase hover:opacity-80 transition-opacity"
-          aria-label="Rolar para descobrir mais"
+          aria-label="Scrollen um mehr zu entdecken"
         >
-          SCROLL TO DISCOVER
+          SCROLLEN ZUM ENTDECKEN
         </button>
         
         {/* Play/Pause Button - Posicionado diretamente na section */}
         <button 
           onClick={togglePlayPause}
           className="absolute bottom-16 sm:bottom-20 left-1/2 -translate-x-1/2 blend-text rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center hover:scale-110 transition-all border-2 border-white"
-          aria-label={isPlaying ? "Pausar vídeo" : "Reproduzir vídeo"}
+          aria-label={isPlaying ? "Video pausieren" : "Video abspielen"}
         >
           {isPlaying ? (
             <Pause className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -94,7 +94,7 @@ const HeroSection = () => {
         
         {/* Bottom text - Posicionado diretamente na section */}
         <p className="absolute bottom-2 sm:bottom-4 left-0 right-0 text-center blend-text text-[10px] sm:text-xs max-w-xs sm:max-w-md mx-auto leading-relaxed opacity-70 px-4 pb-safe">
-          Get assistance from a sighted volunteer with Be My Eyes®.
+          Erhalten Sie Unterstützung von einem sehenden Freiwilligen mit Be My Eyes®.
         </p>
       </section>
 

@@ -14,14 +14,14 @@ const ProductGalleryMobile = () => {
   const touchEndX = useRef<number>(0);
 
   const images = [
-    { src: productHero, alt: "Ray-Ban Meta Wayfarer - Matte Black" },
-    { src: productFront, alt: "Ray-Ban Meta Wayfarer - Front View" },
-    { src: productLifestyle, alt: "Ray-Ban Meta Wayfarer - Lifestyle Shot" },
-    { src: productSide, alt: "Ray-Ban Meta Wayfarer - Side View" },
-    { src: productAngle, alt: "Ray-Ban Meta Wayfarer - Detailed Angle" },
-    { src: productBack, alt: "Ray-Ban Meta Wayfarer - Back View" },
-    { src: productFolded, alt: "Ray-Ban Meta Wayfarer - Folded" },
-    { src: productUnboxing, alt: "Ray-Ban Meta Wayfarer - Full Package" },
+    { src: productHero, alt: "Ray-Ban Meta Wayfarer - Matt Schwarz" },
+    { src: productFront, alt: "Ray-Ban Meta Wayfarer - Vorderansicht" },
+    { src: productLifestyle, alt: "Ray-Ban Meta Wayfarer - Lifestyle-Aufnahme" },
+    { src: productSide, alt: "Ray-Ban Meta Wayfarer - Seitenansicht" },
+    { src: productAngle, alt: "Ray-Ban Meta Wayfarer - Detailansicht" },
+    { src: productBack, alt: "Ray-Ban Meta Wayfarer - Rückansicht" },
+    { src: productFolded, alt: "Ray-Ban Meta Wayfarer - Zusammengefaltet" },
+    { src: productUnboxing, alt: "Ray-Ban Meta Wayfarer - Komplettpaket" },
   ];
 
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -74,7 +74,7 @@ const ProductGalleryMobile = () => {
             key={index}
             onClick={() => setCurrentImage(index)}
             className="w-10 h-10 flex items-center justify-center"
-            aria-label={`View image ${index + 1}`}
+            aria-label={`Bild ${index + 1} anzeigen`}
           >
             <div className={`w-2 h-2 rounded-full transition-all ${
               currentImage === index

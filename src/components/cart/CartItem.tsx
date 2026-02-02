@@ -15,9 +15,9 @@ const CartItem = ({ item, onRemove, onUpdateQuantity }: CartItemProps) => {
       <div className="flex-1 space-y-2">
         <h4 className="font-semibold text-sm">RAY-BAN | META WAYFARER</h4>
         <div className="text-xs text-muted-foreground space-y-1">
-          <p>Frame: {item.customization.selectedFrame?.name}</p>
-          <p>Lens: {item.customization.selectedLens?.name}</p>
-          <p>Bridge: {item.customization.bridgeType}</p>
+          <p>Fassung: {item.customization.selectedFrame?.name}</p>
+          <p>Glas: {item.customization.selectedLens?.name}</p>
+          <p>Steg: {item.customization.bridgeType}</p>
         </div>
         <div className="flex items-center gap-3">
           <div className="flex items-center border border-border rounded-md">
@@ -52,9 +52,9 @@ const CartItem = ({ item, onRemove, onUpdateQuantity }: CartItemProps) => {
 
       {/* Price */}
       <div className="text-right">
-        <p className="font-bold text-lg">${(item.price * item.quantity).toFixed(2)}</p>
+        <p className="font-bold text-lg">€{(item.price * item.quantity).toFixed(2)}</p>
         {item.quantity > 1 && (
-          <p className="text-xs text-muted-foreground">${item.price.toFixed(2)} each</p>
+          <p className="text-xs text-muted-foreground">€{item.price.toFixed(2)} pro Stück</p>
         )}
       </div>
     </div>

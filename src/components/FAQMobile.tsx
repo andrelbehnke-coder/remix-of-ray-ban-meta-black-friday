@@ -8,35 +8,35 @@ import {
 const FAQMobile = () => {
   const faqs = [
     {
-      question: "What's included in the box?",
-      answer: "Ray-Ban | Meta Wayfarer glasses, portable charging case, USB-C charging cable, and cleaning cloth."
+      question: "Was ist im Lieferumfang enthalten?",
+      answer: "Ray-Ban | Meta Wayfarer Brille, tragbares Ladeetui, USB-C Ladekabel und Reinigungstuch."
     },
     {
-      question: "How long does the battery last?",
-      answer: "Up to 4 hours of continuous use. The charging case provides additional charges for all-day use."
+      question: "Wie lange hält der Akku?",
+      answer: "Bis zu 4 Stunden Dauernutzung. Das Ladeetui bietet zusätzliche Ladungen für den ganzen Tag."
     },
     {
-      question: "Is it compatible with prescription lenses?",
-      answer: "Yes! You can order Ray-Ban | Meta with your prescription lenses. Select 'Prescription available' when ordering."
+      question: "Ist sie mit Korrekturgläsern kompatibel?",
+      answer: "Ja! Sie können Ray-Ban | Meta mit Ihren Korrekturgläsern bestellen. Wählen Sie bei der Bestellung 'Sehstärke verfügbar'."
     },
     {
-      question: "How does Meta AI work?",
-      answer: "Simply say 'Hey Meta' followed by your question. The built-in AI can identify objects, translate languages, answer questions, and more."
+      question: "Wie funktioniert Meta AI?",
+      answer: "Sagen Sie einfach 'Hey Meta' gefolgt von Ihrer Frage. Die integrierte KI kann Objekte erkennen, Sprachen übersetzen, Fragen beantworten und vieles mehr."
     },
     {
-      question: "Can I use it with my phone?",
-      answer: "Yes, it connects via Bluetooth to both iOS and Android devices. Use the Meta View app to access all features."
+      question: "Kann ich sie mit meinem Handy verwenden?",
+      answer: "Ja, sie verbindet sich über Bluetooth sowohl mit iOS- als auch mit Android-Geräten. Nutzen Sie die Meta View App für alle Funktionen."
     },
     {
-      question: "Is it waterproof?",
-      answer: "The glasses are water-resistant (IPX4 rated), protecting against splashes and light rain. Not suitable for swimming."
+      question: "Ist sie wasserdicht?",
+      answer: "Die Brille ist wasserbeständig (IPX4-Schutzklasse), geschützt gegen Spritzwasser und leichten Regen. Nicht zum Schwimmen geeignet."
     },
   ];
 
   return (
     <section className="py-8 bg-muted">
       <div className="container mx-auto px-4">
-        <h2 className="text-2xl font-bold mb-6">FREQUENTLY ASKED QUESTIONS</h2>
+        <h2 className="text-2xl font-bold mb-6">HÄUFIG GESTELLTE FRAGEN</h2>
         
         <Accordion type="single" collapsible className="space-y-2">
           {faqs.map((faq, index) => (

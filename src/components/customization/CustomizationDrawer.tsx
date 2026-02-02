@@ -37,16 +37,16 @@ const CustomizationDrawer = ({ open, onOpenChange, onAddToBag }: CustomizationDr
 
   const handleConfirm = () => {
     if (!state.selectedFrame) {
-      toast.error("Please select a frame color");
+      toast.error("Bitte wählen Sie eine Fassungsfarbe");
       return;
     }
     if (!state.selectedLens) {
-      toast.error("Please select lens color");
+      toast.error("Bitte wählen Sie eine Glasfarbe");
       return;
     }
 
     onAddToBag(state, priceBreakdown.totalPrice);
-    toast.success("Added to bag!");
+    toast.success("Zum Warenkorb hinzugefügt!");
     resetCustomization();
     onOpenChange(false);
   };
@@ -61,14 +61,14 @@ const CustomizationDrawer = ({ open, onOpenChange, onAddToBag }: CustomizationDr
         <SheetHeader className="px-4 sm:px-6 py-3 sm:py-4 border-b border-border bg-background sticky top-0 z-10">
           <div className="flex items-center justify-between gap-4">
             <SheetTitle className="text-sm sm:text-base font-bold uppercase tracking-tight">
-              Choose Your Frame & Lens Color
+              Wählen Sie Ihre Fassungs- & Glasfarbe
             </SheetTitle>
             <div className="text-xs sm:text-sm font-bold whitespace-nowrap">
-              ${priceBreakdown.totalPrice.toFixed(2)}
+              €{priceBreakdown.totalPrice.toFixed(2)}
             </div>
           </div>
           <SheetDescription className="sr-only">
-            Customize your Ray-Ban Meta glasses by selecting frame and lens colors
+            Personalisieren Sie Ihre Ray-Ban Meta Brille durch Auswahl von Fassungs- und Glasfarben
           </SheetDescription>
         </SheetHeader>
 
