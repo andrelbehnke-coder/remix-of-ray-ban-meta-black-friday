@@ -60,32 +60,29 @@ const HeroSection = () => {
           </div>
         </header>
 
-        {/* Main Content */}
-        <div className="absolute top-0 left-0 right-0 pt-24 sm:pt-32 flex flex-col items-center px-4">
-          {/* Logos */}
-          <div className="flex items-center gap-2 sm:gap-4 mb-4 sm:mb-8">
-            <span className="blend-text text-base sm:text-xl md:text-2xl font-bold opacity-0 animate-[heroSlideUp_1s_ease-out_0.3s_forwards]">
-              Ray-Ban
-            </span>
-            <span className="blend-text text-base sm:text-xl md:text-2xl opacity-0 animate-[heroSlideUp_1s_ease-out_0.3s_forwards]">
-              |
-            </span>
-            <span className="blend-text text-base sm:text-xl md:text-2xl font-medium opacity-0 animate-[heroSlideUp_1s_ease-out_0.3s_forwards]">
-              ∞ Meta
-            </span>
-          </div>
-
-          {/* Main Title */}
-          <h1 className="blend-text text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-center leading-tight tracking-tight max-w-4xl opacity-0 animate-[heroSlideUp_1.2s_ease-out_0.5s_forwards]">
-            MEET THE NEW AI GLASSES
-          </h1>
+        {/* Main Content - Logos (filhos diretos da section para iOS) */}
+        <div className="absolute top-24 sm:top-32 left-0 right-0 flex items-center justify-center gap-2 sm:gap-4 px-4">
+          <span className="blend-text text-base sm:text-xl md:text-2xl font-bold">
+            Ray-Ban
+          </span>
+          <span className="blend-text text-base sm:text-xl md:text-2xl">
+            |
+          </span>
+          <span className="blend-text text-base sm:text-xl md:text-2xl font-medium">
+            ∞ Meta
+          </span>
         </div>
+
+        {/* Main Title - Filho direto da section para iOS */}
+        <h1 className="absolute top-36 sm:top-48 left-0 right-0 blend-text text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-center leading-tight tracking-tight px-4">
+          MEET THE NEW AI GLASSES
+        </h1>
 
         {/* Bottom CTA */}
         <div className="absolute bottom-4 sm:bottom-12 left-0 right-0 flex flex-col items-center gap-2 sm:gap-3 px-4 pb-safe">
           <button 
             onClick={handleScrollToDiscover}
-            className="blend-text text-[10px] sm:text-sm font-semibold tracking-wider uppercase hover:opacity-80 transition-opacity animate-[heroBounce_2s_ease-in-out_infinite] opacity-0 animate-[heroSlideUp_1.4s_ease-out_0.7s_both]"
+            className="blend-text text-[10px] sm:text-sm font-semibold tracking-wider uppercase hover:opacity-80 transition-opacity"
             aria-label="Rolar para descobrir mais"
           >
             SCROLL TO DISCOVER
@@ -93,7 +90,7 @@ const HeroSection = () => {
           
           <button 
             onClick={togglePlayPause}
-            className="blend-text rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center hover:scale-110 transition-all border-2 border-white opacity-0 animate-[heroSlideUp_1.4s_ease-out_0.8s_both]"
+            className="blend-text rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center hover:scale-110 transition-all border-2 border-white"
             aria-label={isPlaying ? "Pausar vídeo" : "Reproduzir vídeo"}
           >
             {isPlaying ? (
@@ -103,7 +100,7 @@ const HeroSection = () => {
             )}
           </button>
           
-          <p className="blend-text text-[10px] sm:text-xs text-center max-w-xs sm:max-w-md leading-relaxed opacity-70 opacity-0 animate-[heroSlideUp_1.4s_ease-out_0.9s_both]">
+          <p className="blend-text text-[10px] sm:text-xs text-center max-w-xs sm:max-w-md leading-relaxed opacity-70">
             Get assistance from a sighted volunteer with Be My Eyes®.
           </p>
         </div>
